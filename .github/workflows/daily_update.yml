@@ -1,4 +1,6 @@
 name: Daily Market Engine Update
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 # 1. THE TRIGGER: When should this run?
 on:
