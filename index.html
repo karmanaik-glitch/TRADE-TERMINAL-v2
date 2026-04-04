@@ -1315,14 +1315,18 @@ function exportJournal(){
   const header=keys.join(',');
   const rows=journal.map(j=>keys.map(k=>`"${(j[k]||'').toString().replace(/"/g,'""')}"`).join(',')).join('\n');
   const blob=new Blob([header+'\n'+rows],{type:'text/csv'});
- (blob); 
+  
+  // ---> THIS is the part that got mangled in the paste! <---
+  const a = document.createElement('a'); 
+  a.href = URL.createObjectURL(blob);
+  // ---------------------------------------------------------
+  
   a.download = 'trade_journal.csv';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(a.href);
 }
-
 function clearJournal(){
   if(confirm('Are you sure you want to clear your entire trade journal? This cannot be undone.')){
     journal = [];
