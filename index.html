@@ -88,18 +88,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .ftab.on-sell{background:var(--rbg);border-color:var(--rdim);color:var(--red)}
 .ftab.on-watch{background:var(--abg);border-color:var(--adim);color:var(--amber)}
 .scr-count{font-size:9px;color:var(--text3);margin-left:auto;white-space:nowrap}
-/* 1. Turn the left panel into a flex container */
-.main-grid > .panel:first-child {
-  display: flex;
-  flex-direction: column;
-}
-
-/* 2. The Magic Trick: height 0 prevents it from pushing the grid! */
-.scr-wrap {
-  flex: 1;
-  height: 0; 
-  overflow-y: auto;
-}
+.main-grid > .panel:first-child { display: flex; flex-direction: column; min-height: 0; }
+.scr-wrap { flex: 1; overflow-y: auto; min-height: 0; }
 .scr-table{width:100%;border-collapse:collapse}
 .scr-table th{position:sticky;top:0;z-index:5;padding:5px 8px;font-size:9px;color:var(--text3);
   letter-spacing:.07em;text-transform:uppercase;background:var(--bg3);
