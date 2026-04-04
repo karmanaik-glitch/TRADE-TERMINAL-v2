@@ -544,8 +544,8 @@ async function loadAllData(){
     const n=new Date();
     document.getElementById('update-time').textContent=
       n.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Kolkata'})+' IST';
-    document.getElementById('footer-r').textContent=
-      `${signals.length} stocks · ${signals.filter(s=>s.Signal==='BUY').length} BUY · ${signals.filter(s=>s.Signal==='SELL').length} SELL · ${new Date().toLocaleDateString('en-IN')}`;
+document.getElementById('footer-r').textContent=
+      `${signals.length} stocks · ${signals.filter(s=>s.Signal && s.Signal.includes('BUY')).length} BUY · ${signals.filter(s=>s.Signal && s.Signal.includes('SELL')).length} SELL · ${new Date().toLocaleDateString('en-IN')}`;
   }catch(e){
     console.error(e);
     document.getElementById('scr-wrap').innerHTML=
@@ -573,8 +573,8 @@ async function loadNiftyIndex(){
 
 // ─── INDEX STRIP ─────────────────────────────────────────────
 function renderStrip(){
-  const buy=signals.filter(s=>s.Signal==='BUY').length;
-  const sell=signals.filter(s=>s.Signal==='SELL').length;
+  const buy=signals.filter(s=>s.Signal && s.Signal.includes('BUY')).length;
+  const sell=signals.filter(s=>s.Signal && s.Signal.includes('SELL')).length;
   const n=signals.length||1;
   const avgSc=(signals.reduce((a,s)=>a+(+s.Score||0),0)/n).toFixed(0);
   const avgRsi=(signals.reduce((a,s)=>a+(+s.RSI||0),0)/n).toFixed(1);
