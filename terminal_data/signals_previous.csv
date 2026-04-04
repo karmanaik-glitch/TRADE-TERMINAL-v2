@@ -1,0 +1,470 @@
+Ticker,Price,Signal,Score,Target,StopLoss,RSI,ADX,Vol_Ratio,Return_1D_pct,Pct_vs_MA50,PE_Ratio,Rules_Fired,Sector
+GICRE,378.55,STRONG BUY,80,403.49,359.84,55.4,20.3,0.92,-0.41,1.03,6.9,"Value+Momentum, Golden Cross",Financial Services
+OLAELEC,28.34,WEAK BUY,65,30.94,26.6,60.3,23.0,5.13,9.46,2.53,,Breakout,Automobile and Auto Components
+VTL,536.6,WEAK BUY,65,567.12,516.25,55.0,14.9,1.23,1.28,6.55,19.1,Value+Momentum,Textiles
+OBEROIRLTY,1506.9,WEAK BUY,65,1586.42,1453.89,53.7,23.4,1.11,2.2,0.41,24.5,Value+Momentum,Realty
+LUPIN,2274.5,WEAK BUY,65,2359.92,2217.56,47.3,13.4,1.11,-0.02,1.16,22.4,Value+Momentum,Healthcare
+NLCINDIA,278.6,WEAK BUY,65,295.86,267.1,60.7,16.9,0.72,-1.62,7.78,14.5,Value+Momentum,Power
+NATIONALUM,401.8,WEAK BUY,65,428.09,384.28,60.2,15.8,0.51,0.59,8.44,12.0,Value+Momentum,Metals & Mining
+PFC,402.25,WEAK BUY,65,427.75,385.25,50.5,17.6,0.95,1.14,1.29,5.3,Value+Momentum,Financial Services
+NATCOPHARM,1027.55,WEAK BUY,65,1086.63,988.17,63.5,22.5,0.97,2.56,12.78,11.8,Value+Momentum,Healthcare
+KIRLOSENG,1383.9,WEAK BUY,65,1485.16,1316.39,50.9,18.1,0.61,1.24,4.56,37.0,Value+Momentum,Capital Goods
+PFIZER,4887.1,WEAK BUY,65,5100.9,4744.57,54.9,13.0,1.35,0.7,1.57,26.2,Value+Momentum,Healthcare
+AKZOINDIA,2991.8,WEAK BUY,65,3169.84,2873.1,55.7,29.2,2.6,4.19,2.29,7.0,Value+Momentum,Consumer Durables
+ABB,6142.0,WEAK BUY,65,6446.4,5939.07,52.9,25.5,0.73,1.3,5.58,78.1,MTF Alignment,Capital Goods
+CHAMBLFERT,452.4,WEAK BUY,65,476.37,436.42,57.5,12.3,0.72,1.39,3.18,9.5,Value+Momentum,Chemicals
+WAAREEENER,3070.7,WEAK BUY,65,3264.57,2941.45,57.4,21.1,0.58,-0.6,6.32,27.0,Value+Momentum,Capital Goods
+LICHSGFIN,517.4,WEAK BUY,65,542.16,500.89,54.7,20.4,0.79,0.36,0.91,5.2,Value+Momentum,Financial Services
+JPPOWER,15.01,WEAK BUY,65,16.38,14.1,51.7,17.4,0.47,0.47,1.23,22.7,Value+Momentum,Power
+JINDALSAW,191.79,WEAK BUY,65,206.56,181.94,54.2,18.7,0.2,0.24,3.75,10.9,Value+Momentum,Capital Goods
+J&KBANK,113.56,WEAK BUY,65,122.09,107.87,48.6,16.5,0.43,-0.62,2.42,5.8,Value+Momentum,Financial Services
+KAJARIACER,974.05,WEAK BUY,65,1039.75,930.25,54.7,12.8,0.74,-1.79,3.33,38.3,Value+Momentum,Consumer Durables
+AUROPHARMA,1333.7,WEAK BUY,65,1395.51,1292.5,64.3,13.2,1.11,-0.63,9.73,22.2,Value+Momentum,Healthcare
+HEG,550.0,WEAK BUY,65,592.08,521.95,54.6,20.5,0.36,-2.51,2.24,28.6,Value+Momentum,Capital Goods
+BAYERCROP,4759.9,WEAK BUY,65,4997.21,4601.69,59.2,17.5,0.73,0.35,4.11,31.9,Value+Momentum,Chemicals
+BLS,268.4,WEAK BUY,65,292.8,252.14,54.5,13.3,0.8,5.09,0.8,17.2,Value+Momentum,Consumer Services
+HONASA,304.0,WEAK BUY,65,321.6,292.27,59.0,27.1,0.89,-1.12,5.43,63.7,Golden Cross,Fast Moving Consumer Goods
+SARDAEN,519.2,WEAK BUY,65,551.49,497.67,50.3,17.1,1.53,-1.2,1.44,17.3,Value+Momentum,Metals & Mining
+SAMMAANCAP,146.95,WEAK BUY,65,156.47,140.61,53.5,16.7,0.96,0.2,1.25,8.0,Value+Momentum,Financial Services
+LINDEINDIA,7296.5,WEAK BUY,65,7779.99,6974.18,57.9,25.8,1.07,4.21,10.47,105.3,MTF Alignment,Chemicals
+GRANULES,613.6,WEAK BUY,65,644.15,593.23,57.0,13.8,0.63,-2.31,5.71,27.2,Value+Momentum,Healthcare
+DRREDDY,1217.3,WEAK BUY,65,1273.34,1179.94,39.4,21.1,1.86,0.64,-3.67,17.9,Golden Cross,Healthcare
+GESHIP,1439.6,WEAK BUY,65,1527.06,1381.29,57.6,23.2,0.44,-1.4,9.51,9.1,Value+Momentum,Services
+GALLANTT,555.9,WEAK BUY,65,593.37,530.92,52.5,9.7,0.28,-1.23,0.57,28.1,Value+Momentum,Capital Goods
+SUNTV,595.35,WEAK BUY,65,639.51,565.91,52.4,15.5,0.59,2.22,3.14,14.9,Value+Momentum,Media Entertainment & Publication
+COFORGE,1213.4,WEAK BUY,65,1297.92,1157.06,52.4,39.1,1.87,5.16,-9.84,36.2,Breakout,Information Technology
+ENGINERSIN,200.55,WEAK BUY,65,215.7,190.45,53.5,14.7,1.25,-0.21,4.37,14.5,Value+Momentum,Construction
+EMCURE,1547.6,WEAK BUY,65,1654.66,1476.23,53.1,15.8,1.06,-2.67,3.36,33.7,Value+Momentum,Healthcare
+SCHNEIDER,906.05,WEAK BUY,65,969.33,863.86,57.0,19.0,0.67,3.42,10.8,88.5,Golden Cross,Capital Goods
+GPIL,276.75,WEAK BUY,65,294.3,265.05,58.1,15.8,1.18,-0.68,7.01,23.5,Value+Momentum,Capital Goods
+CESC,153.25,WEAK BUY,65,160.97,148.1,49.2,11.6,0.61,0.08,0.59,13.8,Value+Momentum,Power
+CCL,1093.0,WEAK BUY,65,1153.61,1052.6,60.4,16.1,0.56,0.99,7.79,38.8,Value+Momentum,Fast Moving Consumer Goods
+BALRAMCHIN,489.35,WEAK BUY,65,520.97,468.27,53.3,21.3,0.42,-1.13,5.98,22.2,Value+Momentum,Fast Moving Consumer Goods
+HCLTECH,1402.2,WEAK BUY,65,1469.45,1357.37,52.5,31.8,1.88,3.53,-5.07,23.1,Breakout,Information Technology
+BANDHANBNK,146.34,WEAK BUY,65,156.81,139.36,37.5,34.7,1.07,-0.9,-10.09,23.4,Golden Cross,Financial Services
+INDGN,472.6,WEAK BUY,65,500.87,453.75,54.9,15.9,0.43,1.73,0.67,25.9,Value+Momentum,Healthcare
+COALINDIA,449.35,WEAK BUY,65,469.75,435.75,52.9,23.6,0.44,-0.01,3.41,9.3,Value+Momentum,Oil Gas & Consumable Fuels
+CHENNPETRO,1032.25,WEAK BUY,65,1129.81,967.21,58.8,18.5,0.69,2.22,12.39,7.1,Value+Momentum,Oil Gas & Consumable Fuels
+WELCORP,846.85,WEAK BUY,65,896.16,813.98,57.5,10.0,0.92,2.3,5.95,11.5,Value+Momentum,Capital Goods
+VOLTAS,1235.4,NEUTRAL,55,-,-,33.4,30.5,2.07,-1.14,-12.92,81.3,None,Consumer Durables
+MFSL,1464.2,NEUTRAL,55,-,-,23.8,38.7,0.93,-0.89,-13.61,344.5,None,Financial Services
+ASHOKLEY,148.44,NEUTRAL,55,-,-,27.0,43.1,1.18,-0.45,-22.2,26.4,None,Capital Goods
+REDINGTON,201.11,NEUTRAL,55,-,-,32.9,23.9,0.98,-0.66,-18.7,8.9,None,Services
+SBILIFE,1774.0,NEUTRAL,55,-,-,29.5,27.3,1.24,-0.92,-10.26,71.9,None,Financial Services
+HONAUT,26885.0,NEUTRAL,55,-,-,33.0,32.6,1.35,-1.48,-12.57,46.9,None,Capital Goods
+JKTYRE,388.95,NEUTRAL,55,-,-,34.6,38.5,0.47,-1.23,-20.46,15.8,None,Automobile and Auto Components
+PGEL,454.45,NEUTRAL,55,-,-,33.0,30.2,1.49,-5.5,-18.96,46.3,None,Consumer Durables
+M&MFIN,285.15,NEUTRAL,55,-,-,31.1,36.1,1.35,-1.57,-19.2,16.1,None,Financial Services
+TORNTPHARM,3987.2,NEUTRAL,55,-,-,32.9,18.2,2.04,-3.02,-4.49,59.5,None,Healthcare
+PRESTIGE,1152.0,NEUTRAL,55,-,-,31.8,39.4,2.16,0.62,-17.13,51.3,None,Realty
+PTCIL,14726.0,NEUTRAL,55,-,-,21.1,32.6,0.83,-2.02,-16.09,333.3,None,Capital Goods
+IOC,134.13,NEUTRAL,55,-,-,25.7,36.5,0.88,-1.17,-17.02,5.2,None,Oil Gas & Consumable Fuels
+BANKBARODA,249.56,NEUTRAL,55,-,-,30.8,34.5,1.42,-0.98,-14.4,6.6,None,Financial Services
+BLUESTARCO,1528.3,NEUTRAL,55,-,-,29.7,27.7,2.7,-1.8,-16.73,63.7,None,Consumer Durables
+BRITANNIA,5442.0,NEUTRAL,55,-,-,34.0,32.3,1.1,-0.58,-7.33,54.3,None,Fast Moving Consumer Goods
+BPCL,278.15,NEUTRAL,55,-,-,26.5,42.0,0.83,-1.1,-19.23,4.8,None,Oil Gas & Consumable Fuels
+HINDPETRO,326.0,NEUTRAL,55,-,-,31.3,30.1,0.6,-2.85,-20.45,4.5,None,Oil Gas & Consumable Fuels
+HYUNDAI,1711.5,NEUTRAL,55,-,-,21.5,34.1,1.38,-0.27,-18.67,24.0,None,Automobile and Auto Components
+HAVELLS,1180.6,NEUTRAL,55,-,-,29.9,24.3,0.83,-0.45,-11.5,49.8,None,Consumer Durables
+IDEA,8.58,NEUTRAL,55,-,-,33.9,35.7,1.57,-0.69,-16.4,,None,Telecommunication
+EMAMILTD,398.3,NEUTRAL,55,-,-,29.4,46.4,0.75,1.23,-13.35,21.9,None,Fast Moving Consumer Goods
+FORTIS,788.75,NEUTRAL,55,-,-,34.8,30.5,0.67,-0.79,-9.27,62.1,None,Healthcare
+IDBI,69.55,NEUTRAL,55,-,-,32.6,53.4,0.97,2.81,-28.32,8.0,None,Financial Services
+GSPL,238.57,NEUTRAL,55,-,-,31.7,19.0,0.53,1.79,-16.63,12.8,None,Oil Gas & Consumable Fuels
+CONCORDBIO,1025.1,NEUTRAL,55,-,-,32.8,23.6,1.12,0.5,-12.1,34.5,None,Healthcare
+CHOLAFIN,1356.3,NEUTRAL,55,-,-,31.0,45.3,1.07,-1.26,-16.13,23.6,None,Financial Services
+DIVISLAB,5856.5,NEUTRAL,55,-,-,33.2,18.5,1.73,-0.85,-4.92,62.9,None,Healthcare
+3MINDIA,29735.0,NEUTRAL,55,-,-,29.2,27.0,1.75,1.16,-13.34,88.5,None,Diversified
+AIAENG,3676.0,NEUTRAL,50,-,-,50.7,12.3,0.26,-0.14,-3.06,29.5,None,Capital Goods
+ZYDUSWELL,443.05,NEUTRAL,50,-,-,59.1,29.5,0.08,1.68,7.87,68.1,None,Fast Moving Consumer Goods
+ZYDUSLIFE,864.25,NEUTRAL,50,-,-,41.4,20.8,1.52,0.12,-3.76,17.6,None,Healthcare
+AADHARHFC,439.1,NEUTRAL,50,-,-,39.7,15.9,0.37,-2.67,-6.1,18.8,None,Financial Services
+VEDL,687.65,WATCH,50,-,-,54.5,11.7,1.03,1.54,1.27,19.1,None,Metals & Mining
+UNIONBANK,171.99,NEUTRAL,50,-,-,45.0,22.6,0.78,0.2,-5.23,6.9,None,Financial Services
+ABBOTINDIA,26285.0,NEUTRAL,50,-,-,46.6,12.0,0.39,-0.77,-2.15,36.6,None,Healthcare
+ABCAPITAL,298.25,NEUTRAL,50,-,-,39.9,29.7,0.85,-1.54,-10.7,22.5,None,Financial Services
+ABDL,423.85,NEUTRAL,50,-,-,43.7,33.5,0.64,0.55,-9.31,44.4,None,Fast Moving Consumer Goods
+ABFRL,57.66,NEUTRAL,50,-,-,41.9,18.5,0.56,-0.67,-11.09,,None,Consumer Services
+ABREL,1144.6,NEUTRAL,50,-,-,42.4,22.1,0.52,-0.9,-9.42,,None,Realty
+ABSLAMC,917.15,NEUTRAL,50,-,-,51.1,17.5,0.45,1.75,4.68,26.1,None,Financial Services
+ACE,817.6,NEUTRAL,50,-,-,46.9,11.2,0.98,0.75,-4.2,23.0,None,Capital Goods
+ACMESOLAR,274.65,NEUTRAL,50,-,-,64.6,33.0,1.18,2.94,18.21,34.2,None,Power
+NHPC,75.33,WATCH,50,-,-,49.0,16.0,0.52,-0.08,-0.55,48.3,None,Power
+NEWGEN,440.35,NEUTRAL,50,-,-,42.7,24.3,0.66,1.98,-14.38,20.9,None,Information Technology
+NEULANDLAB,12433.0,NEUTRAL,50,-,-,48.3,18.7,0.74,-1.43,-3.58,89.3,None,Healthcare
+NETWEB,3155.0,NEUTRAL,50,-,-,44.9,14.4,0.37,0.35,-3.44,100.0,None,Information Technology
+AUBANK,868.25,NEUTRAL,50,-,-,41.6,34.9,0.77,-0.76,-9.15,28.2,None,Financial Services
+ATUL,6296.0,WATCH,50,-,-,49.4,18.1,0.43,-2.18,-0.3,31.2,None,Chemicals
+ATGL,520.05,WATCH,50,-,-,48.7,20.4,0.12,-0.16,-1.16,89.4,None,Oil Gas & Consumable Fuels
+ASTRAL,1553.5,WATCH,50,-,-,43.0,12.9,1.73,-1.07,-1.52,82.6,None,Capital Goods
+ASTERDM,658.1,NEUTRAL,50,-,-,53.8,19.1,0.49,-3.91,6.91,103.2,None,Healthcare
+ASAHIINDIA,821.6,NEUTRAL,50,-,-,43.1,23.0,0.1,-0.13,-9.3,67.6,None,Automobile and Auto Components
+APOLLOHOSP,7317.5,WATCH,50,-,-,43.9,16.5,0.72,0.16,-0.9,58.5,None,Healthcare
+BEML,1482.5,NEUTRAL,50,-,-,44.1,30.3,0.99,0.39,-9.82,49.5,None,Capital Goods
+BEL,421.6,NEUTRAL,50,-,-,46.5,22.5,0.96,0.69,-2.81,51.5,None,Capital Goods
+USHAMART,405.55,WATCH,50,-,-,48.9,17.1,0.75,-0.27,-1.67,28.2,None,Capital Goods
+VMM,107.88,NEUTRAL,50,-,-,46.9,22.6,1.06,2.64,-7.08,64.6,None,Consumer Services
+VIJAYA,897.05,NEUTRAL,50,-,-,40.7,31.6,1.03,1.41,-6.65,57.8,None,Healthcare
+SUMICHEM,383.3,NEUTRAL,50,-,-,46.2,31.1,0.5,0.82,-4.68,36.0,None,Chemicals
+EXIDEIND,299.25,NEUTRAL,50,-,-,43.5,24.9,1.31,-0.2,-7.01,30.8,None,Automobile and Auto Components
+ESCORTS,2843.9,NEUTRAL,50,-,-,37.5,36.6,1.0,0.59,-15.17,23.8,None,Capital Goods
+CREDITACC,1177.9,NEUTRAL,50,-,-,46.2,8.4,0.85,-1.18,-5.58,38.9,None,Financial Services
+CRAFTSMAN,6789.0,NEUTRAL,50,-,-,40.7,32.9,0.33,-0.72,-8.87,48.3,None,Automobile and Auto Components
+COROMANDEL,1878.3,NEUTRAL,50,-,-,36.7,21.8,0.69,-2.11,-12.9,23.1,None,Chemicals
+COCHINSHIP,1314.5,NEUTRAL,50,-,-,44.1,20.5,1.32,-1.8,-9.54,47.6,None,Capital Goods
+CLEAN,710.3,NEUTRAL,50,-,-,47.7,21.1,1.15,1.48,-6.46,30.8,None,Chemicals
+CHOICEIN,634.35,NEUTRAL,50,-,-,43.8,30.9,0.64,-0.92,-11.62,59.2,None,Financial Services
+DIXON,9920.5,NEUTRAL,50,-,-,44.3,15.0,1.55,-3.25,-6.93,36.1,None,Consumer Durables
+DELHIVERY,426.25,WATCH,50,-,-,52.3,12.4,0.78,-1.19,1.16,213.1,None,Services
+DEEPAKFERT,992.75,NEUTRAL,50,-,-,52.7,25.8,0.61,0.45,-2.01,14.3,None,Chemicals
+DCMSHRIRAM,1131.5,NEUTRAL,50,-,-,59.6,22.5,0.6,-1.77,3.67,26.7,None,Diversified
+BHEL,248.11,NEUTRAL,50,-,-,44.2,15.2,0.82,-1.48,-4.14,106.5,None,Capital Goods
+BHARTIHEXA,1506.8,NEUTRAL,50,-,-,40.7,26.9,1.22,2.81,-6.08,42.9,None,Telecommunication
+BHARTIARTL,1789.7,NEUTRAL,50,-,-,38.2,45.4,0.97,0.44,-6.9,35.3,None,Telecommunication
+EICHERMOT,6649.5,NEUTRAL,50,-,-,39.9,30.7,1.02,-2.58,-9.35,34.1,None,Automobile and Auto Components
+DOMS,2356.4,NEUTRAL,50,-,-,56.6,25.6,0.09,0.48,1.93,64.5,None,Fast Moving Consumer Goods
+GLAND,1688.6,NEUTRAL,50,-,-,48.1,19.6,1.06,-1.02,-3.51,32.8,None,Healthcare
+GILLETTE,7567.5,NEUTRAL,50,-,-,37.8,29.5,1.12,0.39,-7.37,46.3,None,Fast Moving Consumer Goods
+DATAPATTNS,3055.3,NEUTRAL,50,-,-,46.4,25.9,0.85,-1.68,4.02,69.4,None,Capital Goods
+CUMMINSIND,4646.5,NEUTRAL,50,-,-,51.4,16.8,0.7,0.81,3.41,57.5,None,Capital Goods
+CUB,240.49,NEUTRAL,50,-,-,41.7,18.1,0.72,0.34,-10.95,14.3,None,Financial Services
+CROMPTON,231.91,NEUTRAL,50,-,-,40.4,21.9,1.01,-0.29,-5.88,32.3,None,Consumer Durables
+TATAINVEST,583.6,NEUTRAL,50,-,-,42.9,18.4,0.55,1.13,-7.06,72.5,None,Financial Services
+TARIL,273.1,WATCH,50,-,-,47.6,14.7,0.73,-0.44,-0.27,30.6,None,Capital Goods
+SYRMA,796.3,WATCH,50,-,-,52.2,16.2,0.57,-0.16,1.36,52.1,None,Capital Goods
+SWIGGY,275.35,NEUTRAL,50,-,-,40.9,36.3,0.81,3.79,-10.42,,None,Consumer Services
+SUZLON,40.78,NEUTRAL,50,-,-,44.4,26.0,0.87,-0.83,-7.52,17.3,None,Capital Goods
+SUPREMEIND,3642.1,NEUTRAL,50,-,-,39.2,16.7,1.58,-0.45,-3.65,56.8,None,Capital Goods
+SUNPHARMA,1693.6,NEUTRAL,50,-,-,38.1,21.4,1.29,-2.02,-1.64,37.2,None,Healthcare
+SUNDARMFIN,4538.0,NEUTRAL,50,-,-,36.7,29.6,0.9,-1.21,-12.14,24.3,None,Financial Services
+BSE,2851.4,WATCH,50,-,-,51.7,11.2,0.8,-0.56,1.09,53.8,None,Financial Services
+FEDERALBNK,265.55,NEUTRAL,50,-,-,45.2,33.7,0.57,-0.77,-5.34,16.1,None,Financial Services
+FACT,773.75,WATCH,50,-,-,48.5,22.5,0.09,-1.51,-1.24,1682.1,None,Chemicals
+STARHEALTH,469.9,NEUTRAL,50,-,-,58.1,10.6,1.21,0.0,2.51,62.1,None,Financial Services
+SRF,2416.1,NEUTRAL,50,-,-,42.3,24.2,1.05,-5.44,-9.59,40.3,None,Chemicals
+SPLPETRO,732.25,NEUTRAL,50,-,-,61.0,34.7,0.37,-0.89,14.91,51.5,None,Chemicals
+SONACOMS,496.55,NEUTRAL,50,-,-,47.6,11.3,0.93,-0.14,-2.06,50.3,None,Automobile and Auto Components
+SOLARINDS,13109.0,NEUTRAL,50,-,-,47.3,20.8,0.84,2.36,-2.47,82.0,None,Chemicals
+SJVN,67.34,NEUTRAL,50,-,-,45.0,10.7,0.72,0.12,-5.57,41.1,None,Power
+SIEMENS,3026.6,NEUTRAL,50,-,-,44.1,16.9,0.7,0.32,-3.7,63.7,None,Capital Goods
+SHYAMMETL,792.65,NEUTRAL,50,-,-,47.4,18.1,0.26,-0.55,-3.99,22.8,None,Capital Goods
+ENDURANCE,2251.9,NEUTRAL,50,-,-,39.5,23.0,0.93,-0.0,-7.77,34.4,None,Automobile and Auto Components
+ELGIEQUIP,479.7,WATCH,50,-,-,46.9,23.6,1.13,0.13,-1.37,37.6,None,Capital Goods
+ELECON,388.15,NEUTRAL,50,-,-,47.6,10.0,0.81,1.78,-4.67,18.1,None,Capital Goods
+EIHOTEL,288.2,NEUTRAL,50,-,-,39.3,20.3,0.43,2.93,-9.91,28.0,None,Consumer Services
+EIDPARRY,807.35,NEUTRAL,50,-,-,46.1,27.3,1.01,-0.83,-6.29,12.1,None,Fast Moving Consumer Goods
+FLUOROCHEM,3203.5,NEUTRAL,50,-,-,48.8,17.3,0.38,-0.97,-2.01,53.8,None,Chemicals
+FIRSTCRY,224.33,NEUTRAL,50,-,-,49.2,19.9,0.22,1.66,-6.32,,None,Consumer Services
+FINCABLES,797.65,NEUTRAL,50,-,-,43.6,24.2,0.63,-0.14,-2.23,17.9,None,Capital Goods
+CGCL,166.33,NEUTRAL,50,-,-,48.1,14.1,1.42,-5.48,-2.03,17.9,None,Financial Services
+CEATLTD,3368.3,NEUTRAL,50,-,-,44.4,16.1,0.41,-0.52,-7.91,24.6,None,Automobile and Auto Components
+CASTROLIND,177.92,WATCH,50,-,-,46.9,21.3,0.53,0.91,-1.28,18.5,None,Oil Gas & Consumable Fuels
+CARTRADE,1695.6,NEUTRAL,50,-,-,41.4,36.7,0.82,-3.45,-15.78,42.5,None,Consumer Services
+CARBORUNIV,854.0,NEUTRAL,50,-,-,65.2,23.2,5.07,6.42,6.38,65.8,None,Capital Goods
+CANFINHOME,822.6,NEUTRAL,50,-,-,45.1,31.4,0.58,1.01,-5.83,11.2,None,Financial Services
+CANBK,127.04,NEUTRAL,50,-,-,37.3,26.5,1.16,-0.2,-12.48,5.7,None,Financial Services
+CAMS,660.9,NEUTRAL,50,-,-,49.9,25.0,0.9,0.85,-3.81,35.5,None,Financial Services
+TECHNOE,1049.4,WATCH,50,-,-,46.7,17.8,0.83,1.75,-1.21,26.0,None,Construction
+TECHM,1441.5,NEUTRAL,50,-,-,55.7,22.8,1.1,2.63,-3.71,27.7,None,Information Technology
+TBOTEK,1093.1,NEUTRAL,50,-,-,38.3,47.8,0.35,-0.07,-16.06,48.3,None,Consumer Services
+TATASTEEL,194.14,WATCH,50,-,-,48.9,19.8,0.73,-0.24,-1.8,26.4,None,Metals & Mining
+TATAPOWER,385.0,NEUTRAL,50,-,-,50.4,14.5,0.96,1.26,2.46,32.5,None,Power
+IFCI,52.44,NEUTRAL,50,-,-,45.6,15.7,0.65,0.63,-8.21,35.2,None,Financial Services
+IEX,119.42,NEUTRAL,50,-,-,47.2,21.8,0.61,-0.44,-3.36,22.1,None,Financial Services
+SHRIRAMFIN,891.6,NEUTRAL,50,-,-,39.5,27.0,0.68,-0.99,-11.75,18.3,None,Financial Services
+SCI,228.55,NEUTRAL,50,-,-,45.7,17.8,0.71,-1.23,-3.9,9.4,None,Services
+SCHAEFFLER,3764.4,NEUTRAL,50,-,-,41.9,14.9,1.0,-2.74,-3.87,51.0,None,Automobile and Auto Components
+GRSE,2255.3,NEUTRAL,50,-,-,47.6,21.6,2.34,-4.41,-5.73,37.5,None,Capital Goods
+GRAPHITE,637.75,WATCH,50,-,-,51.1,15.7,0.44,-0.85,-1.27,37.9,None,Capital Goods
+GODREJPROP,1508.3,NEUTRAL,50,-,-,38.5,24.6,0.91,0.01,-9.79,28.7,None,Realty
+GODIGIT,320.8,NEUTRAL,50,-,-,41.9,17.5,0.61,0.28,-2.16,57.8,None,Financial Services
+GODFRYPHLP,1909.9,NEUTRAL,50,-,-,43.2,11.7,0.67,-0.9,-7.72,23.1,None,Fast Moving Consumer Goods
+GMRAIRPORT,88.87,NEUTRAL,50,-,-,44.8,21.7,0.51,-0.47,-6.25,,None,Services
+GMDCLTD,582.35,NEUTRAL,50,-,-,56.1,10.8,0.55,0.35,3.13,18.7,None,Metals & Mining
+GLENMARK,2091.8,WATCH,50,-,-,47.4,10.8,1.36,-0.44,1.33,55.6,None,Healthcare
+GLAXO,2311.5,NEUTRAL,50,-,-,39.0,26.5,1.95,-0.76,-6.06,38.3,None,Healthcare
+GABRIEL,876.7,NEUTRAL,50,-,-,48.4,14.1,1.0,1.21,-4.62,,None,Automobile and Auto Components
+FORCEMOT,21126.0,NEUTRAL,50,-,-,48.4,13.2,0.91,1.9,-3.21,20.4,None,Automobile and Auto Components
+HINDCOPPER,495.15,NEUTRAL,50,-,-,46.7,22.5,1.4,-0.17,-10.64,72.5,None,Metals & Mining
+HINDALCO,916.25,WATCH,50,-,-,51.5,18.8,1.03,1.29,-1.57,12.7,None,Metals & Mining
+HFCL,71.72,NEUTRAL,50,-,-,53.1,12.6,0.76,-1.03,3.62,199.2,None,Telecommunication
+HEROMOTOCO,5011.5,NEUTRAL,50,-,-,38.8,19.7,1.47,-2.16,-8.25,18.4,None,Automobile and Auto Components
+BRIGADE,687.55,NEUTRAL,50,-,-,50.6,29.2,0.26,2.22,-4.36,22.5,None,Realty
+BOSCHLTD,32135.0,NEUTRAL,50,-,-,51.2,36.9,2.93,4.9,-5.4,34.4,None,Automobile and Auto Components
+BLUEJET,357.35,NEUTRAL,50,-,-,45.7,20.6,0.64,1.81,-8.85,21.1,None,Healthcare
+BLUEDART,4893.3,NEUTRAL,50,-,-,36.3,39.3,0.93,0.13,-9.85,45.9,None,Services
+BIOCON,352.55,NEUTRAL,50,-,-,36.7,23.2,1.64,-3.46,-6.48,72.4,None,Healthcare
+BIKAJI,627.0,WATCH,50,-,-,50.1,19.7,0.61,0.9,-1.85,63.7,None,Fast Moving Consumer Goods
+BDL,1185.6,NEUTRAL,50,-,-,42.8,21.3,0.74,-1.52,-9.25,75.2,None,Capital Goods
+BANKINDIA,139.16,NEUTRAL,50,-,-,36.7,34.7,0.96,-1.79,-13.03,6.5,None,Financial Services
+HBLENGINE,667.4,NEUTRAL,50,-,-,48.1,21.4,1.22,1.08,-5.67,23.3,None,Capital Goods
+HAL,3687.0,NEUTRAL,50,-,-,40.3,36.1,0.96,0.44,-9.0,27.7,None,Capital Goods
+GVT&D,3822.2,NEUTRAL,50,-,-,56.2,19.9,1.06,0.62,8.59,91.5,None,Capital Goods
+IGIL,320.35,WATCH,50,-,-,47.2,11.4,0.38,-1.17,-0.52,27.0,None,Services
+RECLTD,324.8,NEUTRAL,50,-,-,46.5,18.0,0.88,0.84,-5.66,5.0,None,Financial Services
+RBLBANK,301.0,WATCH,50,-,-,49.3,12.6,1.76,-0.22,-1.48,25.5,None,Financial Services
+RAMCOCEM,925.15,NEUTRAL,50,-,-,37.4,44.7,0.46,-1.94,-13.1,38.0,None,Construction Materials
+RAINBOW,1149.5,NEUTRAL,50,-,-,46.2,15.1,1.05,-2.19,-2.17,45.7,None,Healthcare
+RADICO,2623.2,NEUTRAL,50,-,-,44.3,11.8,0.6,-2.27,-4.51,68.0,None,Fast Moving Consumer Goods
+PVRINOX,942.4,NEUTRAL,50,-,-,40.3,18.3,0.45,-0.28,-5.72,434.3,None,Media Entertainment & Publication
+HUDCO,167.98,NEUTRAL,50,-,-,43.1,23.1,0.81,-0.03,-9.24,12.1,None,Financial Services
+HSCL,448.15,WATCH,50,-,-,47.6,19.8,1.72,0.29,-1.99,31.6,None,Chemicals
+HINDZINC,515.75,NEUTRAL,50,-,-,40.9,30.5,0.67,-1.66,-13.47,18.5,None,Metals & Mining
+SBIN,1018.4,NEUTRAL,50,-,-,38.9,40.5,1.17,0.06,-7.93,11.1,None,Financial Services
+SAREGAMA,320.5,NEUTRAL,50,-,-,42.5,14.6,0.74,-2.17,-4.55,32.1,None,Media Entertainment & Publication
+SAILIFE,959.95,NEUTRAL,50,-,-,46.2,10.2,0.98,-1.73,2.81,60.6,None,Healthcare
+SAIL,155.16,WATCH,50,-,-,52.3,19.8,1.2,-0.42,0.17,23.0,None,Metals & Mining
+SAGILITY,41.73,NEUTRAL,50,-,-,52.5,23.9,0.47,0.05,-5.62,23.1,None,Information Technology
+RVNL,260.66,NEUTRAL,50,-,-,40.9,25.2,0.83,-0.74,-12.87,47.4,None,Construction
+RRKABEL,1333.6,NEUTRAL,50,-,-,42.0,16.7,0.4,0.02,-5.92,33.2,None,Capital Goods
+AXISBANK,1197.9,NEUTRAL,50,-,-,41.3,27.1,1.13,0.4,-8.01,14.2,None,Financial Services
+JBMA,561.7,WATCH,50,-,-,52.9,22.7,0.31,0.11,1.23,175.5,None,Automobile and Auto Components
+JBCHEPHARM,1961.1,NEUTRAL,50,-,-,37.5,26.3,0.55,-2.37,-1.48,41.3,None,Healthcare
+ITI,254.83,NEUTRAL,50,-,-,45.7,14.7,0.06,-0.2,-7.11,,None,Telecommunication
+IRFC,91.84,NEUTRAL,50,-,-,39.5,33.9,1.07,-0.16,-12.83,17.1,None,Financial Services
+IREDA,114.94,NEUTRAL,50,-,-,47.0,21.0,0.91,1.57,-5.86,16.8,None,Financial Services
+IRCON,124.96,NEUTRAL,50,-,-,43.5,18.9,0.49,-0.35,-12.6,19.1,None,Construction
+IRB,21.8,NEUTRAL,50,-,-,60.0,12.1,0.55,0.88,4.89,34.6,None,Construction
+IPCALAB,1488.3,WATCH,50,-,-,43.1,21.5,0.75,-1.32,-0.54,41.5,None,Healthcare
+RPOWER,22.64,NEUTRAL,50,-,-,46.8,15.9,1.07,1.3,-10.83,32.8,None,Power
+IOB,32.79,NEUTRAL,50,-,-,46.7,21.8,0.61,1.17,-4.69,13.3,None,Financial Services
+INDUSTOWER,424.85,NEUTRAL,50,-,-,44.2,25.3,0.87,0.38,-4.1,15.7,None,Telecommunication
+INDUSINDBK,778.7,NEUTRAL,50,-,-,37.6,31.0,0.55,-0.88,-12.28,,None,Financial Services
+INDIANB,869.4,NEUTRAL,50,-,-,46.4,23.1,0.85,-2.09,-3.57,10.2,None,Financial Services
+INDIAMART,2018.9,NEUTRAL,50,-,-,42.7,14.5,0.56,-0.98,-6.02,20.1,None,Consumer Services
+INDIACEM,358.95,NEUTRAL,50,-,-,40.3,26.2,0.99,0.49,-12.65,,None,Construction Materials
+POWERINDIA,25325.0,NEUTRAL,50,-,-,57.6,23.0,0.86,1.04,11.92,133.3,None,Capital Goods
+POWERGRID,289.95,WATCH,50,-,-,43.1,11.3,0.89,-0.97,0.59,18.6,None,Power
+JINDALSTEL,1137.9,NEUTRAL,50,-,-,47.1,14.1,1.01,0.04,-2.2,58.5,None,Metals & Mining
+BALKRISIND,2067.2,NEUTRAL,50,-,-,37.9,21.3,1.31,-2.84,-12.87,30.5,None,Automobile and Auto Components
+TORNTPOWER,1332.2,NEUTRAL,50,-,-,38.2,25.1,1.3,-0.37,-6.4,21.2,None,Power
+TITAN,4097.2,WATCH,50,-,-,50.2,25.7,1.65,0.78,-0.84,76.3,None,Consumer Durables
+TITAGARH,614.9,NEUTRAL,50,-,-,41.1,38.7,0.73,0.97,-13.85,45.6,None,Capital Goods
+TIMKEN,3347.8,NEUTRAL,50,-,-,54.1,13.8,0.51,0.25,4.17,58.1,None,Capital Goods
+TIINDIA,2567.3,NEUTRAL,50,-,-,50.6,15.6,0.57,-0.21,2.58,83.3,None,Automobile and Auto Components
+THERMAX,3295.7,NEUTRAL,50,-,-,58.1,13.7,0.74,-1.49,7.66,54.3,None,Capital Goods
+TEJASNET,419.25,NEUTRAL,50,-,-,51.1,18.2,0.24,-0.19,10.22,,None,Telecommunication
+TEGA,1726.9,WATCH,50,-,-,51.6,11.3,0.19,2.0,0.02,57.5,None,Capital Goods
+AFFLE,1421.6,NEUTRAL,50,-,-,51.8,32.9,0.57,-1.1,-3.91,45.7,None,Information Technology
+AFCONS,283.7,NEUTRAL,50,-,-,44.9,27.7,0.3,0.46,-8.3,23.2,None,Construction
+AEGISLOG,589.25,NEUTRAL,50,-,-,36.3,15.9,0.6,-2.35,-11.34,26.9,None,Oil Gas & Consumable Fuels
+BAJAJ-AUTO,8758.5,NEUTRAL,50,-,-,39.5,28.8,0.69,-1.54,-7.44,27.5,None,Automobile and Auto Components
+MANKIND,1998.5,NEUTRAL,50,-,-,41.4,23.6,0.93,-0.14,-4.88,46.3,None,Healthcare
+MANAPPURAM,255.8,NEUTRAL,50,-,-,41.4,23.2,1.1,0.16,-9.49,54.3,None,Financial Services
+MAHABANK,63.89,NEUTRAL,50,-,-,46.8,18.7,0.93,-1.53,-3.82,7.6,None,Financial Services
+KAYNES,3538.0,NEUTRAL,50,-,-,45.7,15.1,1.16,-0.05,-4.24,59.9,None,Capital Goods
+KARURVYSYA,272.65,NEUTRAL,50,-,-,40.7,26.1,2.28,-6.58,-9.2,11.5,None,Financial Services
+KALYANKJIL,394.35,WATCH,50,-,-,51.3,16.0,0.93,1.87,-0.3,36.1,None,Consumer Durables
+JYOTICNC,773.6,NEUTRAL,50,-,-,49.7,18.1,0.19,0.99,-3.64,0.7,None,Capital Goods
+JWL,256.61,NEUTRAL,50,-,-,44.1,12.6,0.2,-0.03,-10.16,44.2,None,Capital Goods
+JUBLINGREA,579.15,NEUTRAL,50,-,-,49.5,17.9,0.54,1.07,-4.21,34.6,None,Chemicals
+JUBLFOOD,446.55,NEUTRAL,50,-,-,38.3,23.1,1.12,0.64,-10.29,91.7,None,Consumer Services
+JSWSTEEL,1141.3,NEUTRAL,50,-,-,44.7,31.5,1.12,0.08,-5.22,37.5,None,Metals & Mining
+JSWINFRA,241.25,NEUTRAL,50,-,-,41.8,11.0,1.19,-2.7,-6.44,31.2,None,Services
+JSWENERGY,491.1,WATCH,50,-,-,50.5,11.3,0.71,1.44,1.61,37.7,None,Power
+JSL,717.8,NEUTRAL,50,-,-,45.6,17.8,0.93,1.84,-5.48,20.1,None,Metals & Mining
+JMFINANCIL,120.15,NEUTRAL,50,-,-,46.3,10.4,0.58,-0.12,-5.75,9.4,None,Financial Services
+PREMIERENE,917.35,NEUTRAL,50,-,-,68.6,29.9,0.77,-2.17,17.46,32.8,None,Capital Goods
+POLYCAB,6878.0,NEUTRAL,50,-,-,37.6,28.7,0.67,-0.68,-8.56,39.5,None,Capital Goods
+POLICYBZR,1426.9,NEUTRAL,50,-,-,40.9,16.9,0.66,-0.43,-5.99,113.6,None,Financial Services
+PNBHOUSING,784.4,NEUTRAL,50,-,-,47.2,21.6,1.04,0.56,-4.71,9.4,None,Financial Services
+PNB,104.48,NEUTRAL,50,-,-,36.9,32.9,1.16,0.46,-12.75,6.7,None,Financial Services
+PIIND,2797.2,NEUTRAL,50,-,-,40.9,15.8,0.98,-1.68,-8.22,29.2,None,Chemicals
+PHOENIXLTD,1525.2,NEUTRAL,50,-,-,41.4,29.2,0.73,0.5,-8.23,50.0,None,Realty
+LAURUSLABS,1042.9,NEUTRAL,50,-,-,55.5,14.9,1.5,0.39,3.29,66.7,None,Healthcare
+LATENTVIEW,312.1,NEUTRAL,50,-,-,53.2,47.2,15.89,19.49,-10.77,32.5,None,Information Technology
+LALPATHLAB,1328.7,NEUTRAL,50,-,-,43.8,16.7,0.56,0.39,-3.92,42.0,None,Healthcare
+KPRMILL,829.9,NEUTRAL,50,-,-,44.2,12.3,0.17,-0.9,-5.65,33.6,None,Textiles
+KPIL,1106.1,WATCH,50,-,-,50.7,9.6,0.49,0.88,-0.88,22.6,None,Construction
+KIMS,626.25,NEUTRAL,50,-,-,40.2,18.5,0.6,0.22,-4.83,83.3,None,Healthcare
+KFINTECH,904.15,NEUTRAL,50,-,-,45.0,17.8,0.58,0.13,-6.5,45.0,None,Financial Services
+KEI,4048.1,NEUTRAL,50,-,-,39.1,24.9,1.08,-2.1,-7.98,44.8,None,Capital Goods
+KEC,529.5,NEUTRAL,50,-,-,42.6,21.1,0.63,1.43,-9.86,20.4,None,Construction
+MARICO,761.35,WATCH,50,-,-,51.9,21.7,1.45,2.26,0.1,57.5,None,Fast Moving Consumer Goods
+NAM-INDIA,829.9,NEUTRAL,50,-,-,45.4,13.0,1.42,-4.07,-6.16,37.2,None,Financial Services
+MUTHOOTFIN,3178.8,NEUTRAL,50,-,-,42.4,22.4,0.52,-2.37,-9.75,14.6,None,Financial Services
+MRPL,182.14,WATCH,50,-,-,48.1,17.4,0.26,-1.09,0.49,14.7,None,Oil Gas & Consumable Fuels
+MOTHERSON,106.81,NEUTRAL,50,-,-,38.3,25.5,1.22,-0.75,-10.62,33.0,None,Automobile and Auto Components
+MMTC,55.36,NEUTRAL,50,-,-,45.1,19.7,0.31,0.33,-9.08,31.5,None,Services
+MEDANTA,1000.4,NEUTRAL,50,-,-,39.9,20.0,1.4,1.13,-8.0,52.3,None,Healthcare
+MCX,2443.0,WATCH,50,-,-,49.0,13.3,0.74,-1.08,-0.21,98.0,None,Financial Services
+MAZDOCK,2264.6,NEUTRAL,50,-,-,47.7,13.9,0.95,-2.31,-3.63,37.9,None,Capital Goods
+NMDC,78.08,WATCH,50,-,-,48.5,13.2,1.13,-0.12,-1.55,9.9,None,Metals & Mining
+M&M,3011.7,NEUTRAL,50,-,-,41.8,27.5,0.81,-0.65,-10.1,21.6,None,Automobile and Auto Components
+LTTS,3347.5,NEUTRAL,50,-,-,50.9,25.5,0.2,0.71,-4.08,28.2,None,Information Technology
+LTFOODS,386.05,WATCH,50,-,-,50.0,20.7,0.08,0.53,-0.83,20.6,None,Fast Moving Consumer Goods
+LTF,240.35,NEUTRAL,50,-,-,35.6,24.2,0.96,-1.75,-13.66,21.5,None,Financial Services
+LT,3613.1,NEUTRAL,50,-,-,44.9,29.8,0.83,0.16,-7.53,28.2,None,Construction
+LLOYDSME,1388.3,NEUTRAL,50,-,-,65.2,17.2,1.28,3.02,15.42,31.6,None,Metals & Mining
+POLYMED,1334.2,NEUTRAL,50,-,-,53.1,21.4,1.2,3.97,-2.34,39.1,None,Healthcare
+ADANIPOWER,159.97,NEUTRAL,50,-,-,65.1,14.4,1.78,1.82,10.47,27.3,None,Power
+ADANIPORTS,1377.6,NEUTRAL,50,-,-,46.7,17.5,1.08,-0.56,-4.86,23.9,None,Services
+ADANIENT,1834.2,NEUTRAL,50,-,-,37.8,37.5,0.84,-0.45,-10.91,16.6,None,Metals & Mining
+NESTLEIND,1191.3,NEUTRAL,50,-,-,40.7,30.2,1.03,0.89,-5.63,70.4,None,Fast Moving Consumer Goods
+NCC,141.71,NEUTRAL,50,-,-,48.8,23.4,0.52,2.25,-3.31,12.3,None,Construction
+NAVINFLUOR,5891.0,NEUTRAL,50,-,-,41.4,16.5,1.04,-2.37,-5.52,54.6,None,Chemicals
+NAVA,560.1,WATCH,50,-,-,50.3,10.6,0.76,-0.6,-0.05,17.8,None,Power
+PARADEEP,115.37,NEUTRAL,50,-,-,51.0,16.2,0.85,-0.47,-3.6,11.4,None,Chemicals
+PAGEIND,33945.0,NEUTRAL,50,-,-,62.0,21.7,3.14,4.06,4.09,50.5,None,Textiles
+ONGC,287.2,NEUTRAL,50,-,-,67.5,36.9,0.74,-0.3,7.94,9.5,None,Oil Gas & Consumable Fuels
+ONESOURCE,1404.5,NEUTRAL,50,-,-,49.3,17.6,0.31,-2.22,3.89,767.5,None,Healthcare
+OLECTRA,1020.1,WATCH,50,-,-,51.9,24.9,0.34,-0.56,1.22,58.8,None,Automobile and Auto Components
+PETRONET,254.69,NEUTRAL,50,-,-,40.3,28.3,0.34,-1.24,-11.11,10.5,None,Oil Gas & Consumable Fuels
+PERSISTENT,5227.7,NEUTRAL,50,-,-,60.8,29.2,1.26,3.54,-1.66,47.2,None,Information Technology
+PCBL,258.93,NEUTRAL,50,-,-,47.4,18.9,0.33,0.51,-6.87,38.3,None,Chemicals
+PAYTM,1006.0,NEUTRAL,50,-,-,43.7,30.1,0.9,0.89,-9.62,,None,Financial Services
+ADANIENSOL,941.6,NEUTRAL,50,-,-,43.1,10.4,0.92,-1.57,-3.41,50.5,None,Power
+OIL,480.15,WATCH,50,-,-,53.9,21.0,0.9,1.43,1.92,13.4,None,Oil Gas & Consumable Fuels
+OFSS,6992.5,NEUTRAL,50,-,-,55.9,22.3,0.83,1.59,-0.47,24.6,None,Information Technology
+ULTRACEMCO,10620.0,NEUTRAL,50,-,-,37.6,47.1,0.76,-0.88,-12.29,40.8,None,Construction Materials
+NYKAA,245.98,NEUTRAL,50,-,-,48.9,17.8,1.25,2.5,-2.74,502.0,None,Consumer Services
+NUVOCO,292.9,NEUTRAL,50,-,-,44.5,12.2,0.2,0.93,-9.27,27.2,None,Construction Materials
+APLAPOLLO,1899.2,NEUTRAL,50,-,-,38.4,28.6,0.78,-1.84,-8.99,46.1,None,Capital Goods
+APARINDS,9832.0,NEUTRAL,50,-,-,50.8,23.9,0.92,0.59,4.51,40.6,None,Capital Goods
+ANURAS,1265.4,WATCH,50,-,-,51.5,12.4,0.83,-0.86,0.02,82.0,None,Chemicals
+ANGELONE,240.85,WATCH,50,-,-,54.8,15.9,0.89,0.1,-0.95,29.4,None,Financial Services
+ANANDRATHI,3208.2,NEUTRAL,50,-,-,65.5,19.3,1.62,3.01,5.89,72.5,None,Financial Services
+ALKEM,5258.0,NEUTRAL,50,-,-,42.9,16.2,0.61,0.26,-4.62,26.5,None,Healthcare
+AJANTPHARM,2791.2,NEUTRAL,50,-,-,40.7,17.0,0.43,-0.91,-3.3,34.4,None,Healthcare
+AIIL,419.7,NEUTRAL,50,-,-,38.7,20.7,0.65,-2.96,-14.76,9.8,None,Financial Services
+UTIAMC,941.15,NEUTRAL,50,-,-,42.8,22.7,0.9,-0.98,-6.54,21.7,None,Financial Services
+NIVABUPA,72.59,NEUTRAL,50,-,-,51.6,18.9,0.12,0.32,-2.78,inf,None,Financial Services
+BHARATFORG,1642.6,NEUTRAL,50,-,-,41.5,24.5,0.71,-1.55,-2.2,69.5,None,Automobile and Auto Components
+CGPOWER,680.05,WATCH,50,-,-,48.2,17.7,0.69,-0.04,1.33,95.2,None,Capital Goods
+NTPCGREEN,97.22,NEUTRAL,50,-,-,56.4,22.6,0.22,-1.01,6.53,140.9,None,Power
+NTPC,359.65,NEUTRAL,50,-,-,39.2,17.2,1.12,-1.37,-2.08,19.9,None,Power
+AARTIIND,408.7,NEUTRAL,50,-,-,45.8,15.8,1.02,-0.66,-2.66,39.2,None,Chemicals
+ZFCVINDIA,13974.0,NEUTRAL,50,-,-,48.0,22.0,1.21,-2.79,-3.89,53.2,None,Automobile and Auto Components
+ZENTEC,1367.2,WATCH,50,-,-,49.3,20.3,0.49,1.62,0.61,46.5,None,Capital Goods
+WOCKPHARMA,1271.5,NEUTRAL,50,-,-,52.1,18.2,0.92,0.31,-3.6,1001.2,None,Healthcare
+WELSPUNLIV,115.97,NEUTRAL,50,-,-,47.1,22.8,0.71,0.22,-7.35,47.3,None,Textiles
+UNOMINDA,1025.4,NEUTRAL,50,-,-,39.8,24.7,1.46,-1.73,-10.0,52.1,None,Automobile and Auto Components
+UNITDSPR,1221.2,NEUTRAL,50,-,-,36.7,20.5,0.64,-2.25,-9.47,50.5,None,Fast Moving Consumer Goods
+UBL,1485.1,NEUTRAL,50,-,-,36.4,19.4,0.89,-6.26,-5.43,96.1,None,Fast Moving Consumer Goods
+TVSMOTOR,3391.4,NEUTRAL,50,-,-,41.6,21.4,0.81,-1.0,-7.2,73.5,None,Automobile and Auto Components
+TTML,36.36,NEUTRAL,50,-,-,45.2,20.0,2.77,3.32,-11.08,,None,Telecommunication
+TRITURBINE,460.65,NEUTRAL,50,-,-,47.7,18.3,0.65,1.45,-3.53,42.7,None,Capital Goods
+TRIDENT,24.12,NEUTRAL,50,-,-,48.8,16.9,0.47,0.96,-4.54,30.2,None,Textiles
+DMART,4362.4,NEUTRAL,45,-,-,73.3,18.2,2.02,2.14,13.25,99.0,None,Consumer Services
+MAXHEALTH,944.6,NEUTRAL,40,-,-,33.0,37.6,0.63,-1.49,-7.3,64.9,MTF Breakdown,Healthcare
+LODHA,696.05,NEUTRAL,40,-,-,20.7,48.1,1.35,1.56,-25.91,20.8,MTF Breakdown,Realty
+SAPPHIRE,153.97,NEUTRAL,40,-,-,32.4,37.8,2.34,-0.88,-19.32,,MTF Breakdown,Consumer Services
+ICICIBANK,1215.8,NEUTRAL,40,-,-,33.8,33.0,1.09,0.26,-9.29,16.6,MTF Breakdown,Financial Services
+SBFC,82.57,NEUTRAL,40,-,-,33.3,28.7,0.32,-1.67,-10.78,21.6,MTF Breakdown,Financial Services
+ICICIGI,1689.1,NEUTRAL,40,-,-,27.7,35.2,1.24,-0.34,-8.84,31.0,MTF Breakdown,Financial Services
+IGL,146.31,NEUTRAL,40,-,-,34.4,32.7,0.64,-1.26,-10.92,12.3,MTF Breakdown,Oil Gas & Consumable Fuels
+SBICARD,638.2,NEUTRAL,40,-,-,31.6,28.7,0.54,0.16,-13.71,29.1,MTF Breakdown,Financial Services
+HDFCBANK,750.9,NEUTRAL,40,-,-,32.8,46.3,0.82,1.17,-14.38,16.7,MTF Breakdown,Financial Services
+KOTAKBANK,358.0,NEUTRAL,40,-,-,34.2,40.6,0.95,0.55,-11.0,18.9,MTF Breakdown,Financial Services
+CIPLA,1192.4,NEUTRAL,40,-,-,26.8,43.8,1.97,-0.29,-9.23,21.2,MTF Breakdown,Healthcare
+COLPAL,1829.5,NEUTRAL,40,-,-,33.2,40.6,0.57,0.54,-12.46,37.5,MTF Breakdown,Fast Moving Consumer Goods
+CRISIL,3705.9,NEUTRAL,40,-,-,26.3,42.3,2.55,-2.86,-14.83,35.3,MTF Breakdown,Financial Services
+BAJAJHLDNG,8992.5,NEUTRAL,40,-,-,32.9,36.7,0.9,0.96,-13.91,11.4,MTF Breakdown,Financial Services
+BAJAJFINSV,1640.7,NEUTRAL,40,-,-,30.3,41.4,1.26,-0.38,-13.94,27.4,MTF Breakdown,Financial Services
+APTUS,199.42,NEUTRAL,40,-,-,33.3,43.0,1.26,-2.1,-17.11,11.2,MTF Breakdown,Financial Services
+360ONE,933.85,NEUTRAL,40,-,-,28.5,29.3,0.86,-2.01,-13.9,32.8,MTF Breakdown,Financial Services
+DEVYANI,96.43,NEUTRAL,40,-,-,27.6,38.0,1.17,-0.34,-18.72,,MTF Breakdown,Consumer Services
+HINDUNILVR,2065.3,NEUTRAL,40,-,-,34.5,37.0,0.72,0.03,-9.28,48.1,MTF Breakdown,Fast Moving Consumer Goods
+DABUR,417.25,NEUTRAL,40,-,-,30.5,39.5,0.63,0.55,-14.23,40.2,MTF Breakdown,Fast Moving Consumer Goods
+GRAVITA,1295.1,NEUTRAL,40,-,-,31.0,36.2,1.56,-1.76,-15.84,24.6,MTF Breakdown,Metals & Mining
+SOBHA,1156.8,NEUTRAL,40,-,-,29.2,42.1,3.1,-3.43,-16.4,87.0,MTF Breakdown,Realty
+HDFCLIFE,566.1,NEUTRAL,40,-,-,22.7,48.4,1.44,-1.2,-17.21,64.5,MTF Breakdown,Financial Services
+GODREJCP,994.8,NEUTRAL,40,-,-,33.2,41.0,0.98,-0.28,-12.65,55.9,MTF Breakdown,Fast Moving Consumer Goods
+WHIRLPOOL,814.4,WEAK SELL,35,766.91,846.06,44.4,26.1,0.33,-1.91,-4.25,31.1,MTF Breakdown,Consumer Durables
+AAVAS,1138.6,WEAK SELL,35,1070.65,1183.9,42.8,41.5,0.57,0.39,-10.66,14.5,MTF Breakdown,Financial Services
+MARUTI,12631.0,WEAK SELL,35,12045.59,13021.27,37.6,42.0,0.68,0.98,-11.55,26.6,MTF Breakdown,Automobile and Auto Components
+MAPMYINDIA,875.7,WEAK SELL,35,802.87,924.26,37.7,35.2,0.59,1.41,-20.49,36.5,MTF Breakdown,Information Technology
+PIDILITIND,1273.6,WEAK SELL,35,1211.66,1314.89,35.7,26.0,1.2,-2.56,-10.59,56.8,MTF Breakdown,Chemicals
+POONAWALLA,393.3,WEAK SELL,35,365.65,411.73,43.6,27.1,0.84,2.78,-8.44,88.6,MTF Breakdown,Financial Services
+MSUMI,37.07,WEAK SELL,35,34.94,38.49,37.1,34.8,1.76,-2.96,-10.83,39.4,MTF Breakdown,Automobile and Auto Components
+MRF,126390.0,WEAK SELL,35,120682.23,130195.18,36.0,33.4,1.0,-2.1,-8.68,24.6,MTF Breakdown,Automobile and Auto Components
+MOTILALOFS,684.95,WEAK SELL,35,637.36,716.68,47.5,31.1,0.9,0.73,-6.79,20.8,MTF Breakdown,Financial Services
+LEMONTREE,108.24,WEAK SELL,35,101.09,113.01,46.7,37.0,0.73,0.41,-8.14,38.9,MTF Breakdown,Consumer Services
+ITCHOTELS,148.09,WEAK SELL,35,137.86,154.91,41.1,36.7,0.38,0.47,-13.13,40.7,MTF Breakdown,Consumer Services
+JIOFIN,229.48,WEAK SELL,35,217.54,237.44,41.1,31.3,1.07,-1.06,-8.6,91.1,MTF Breakdown,Financial Services
+PPLPHARMA,142.18,WEAK SELL,35,133.34,148.07,45.1,25.6,0.67,-0.23,-7.23,,MTF Breakdown,Healthcare
+KPITTECH,696.8,WEAK SELL,35,647.98,729.35,44.0,42.9,0.82,3.34,-16.91,26.5,MTF Breakdown,Information Technology
+JUBLPHARMA,839.3,WEAK SELL,35,785.56,875.13,46.0,26.7,1.07,2.79,-5.72,30.8,MTF Breakdown,Healthcare
+IRCTC,511.8,WEAK SELL,35,485.84,529.11,36.8,32.2,0.54,0.12,-11.79,28.7,MTF Breakdown,Consumer Services
+ITC,292.85,WEAK SELL,35,282.91,299.47,37.7,36.7,0.73,0.39,-6.03,18.0,MTF Breakdown,Fast Moving Consumer Goods
+LICI,734.85,WEAK SELL,35,699.55,758.38,36.7,36.5,1.1,-1.49,-10.66,8.8,MTF Breakdown,Financial Services
+PATANJALI,466.95,WEAK SELL,35,445.32,481.37,38.4,31.6,1.18,-0.67,-7.22,30.8,MTF Breakdown,Fast Moving Consumer Goods
+NUVAMA,1142.6,WEAK SELL,35,1075.65,1187.23,39.7,31.1,0.85,0.32,-9.71,20.7,MTF Breakdown,Financial Services
+NAUKRI,993.8,WEAK SELL,35,939.7,1029.86,44.2,31.2,0.75,0.87,-9.23,47.8,MTF Breakdown,Consumer Services
+NBCC,83.09,WEAK SELL,35,77.23,87.0,44.5,33.7,0.96,0.36,-9.89,34.3,MTF Breakdown,Construction
+MGL,953.15,WEAK SELL,35,893.84,992.69,36.2,27.0,0.48,1.01,-10.84,9.9,MTF Breakdown,Oil Gas & Consumable Fuels
+MINDACORP,501.4,WEAK SELL,35,467.75,523.84,43.2,23.2,0.57,-2.48,-7.9,41.7,Death Cross,Automobile and Auto Components
+NH,1625.0,WEAK SELL,35,1547.26,1676.82,39.5,29.5,0.8,-0.62,-7.34,42.5,MTF Breakdown,Healthcare
+NIACL,123.23,WEAK SELL,35,115.73,128.23,36.4,36.8,0.75,-0.36,-13.17,17.0,MTF Breakdown,Financial Services
+MPHASIS,2209.9,WEAK SELL,35,2081.08,2295.78,49.8,30.4,1.27,3.43,-7.97,23.4,MTF Breakdown,Information Technology
+WIPRO,194.91,WEAK SELL,35,186.81,200.31,44.6,36.4,0.93,1.95,-7.89,15.5,MTF Breakdown,Information Technology
+YESBANK,17.87,WEAK SELL,35,17.0,18.45,37.2,41.5,0.95,-0.22,-11.75,17.7,MTF Breakdown,Financial Services
+ZEEL,74.13,WEAK SELL,35,68.59,77.82,42.0,32.1,0.77,-2.55,-11.12,12.6,MTF Breakdown,Media Entertainment & Publication
+ZENSARTECH,543.7,WEAK SELL,35,511.18,565.38,44.1,41.4,1.04,1.02,-8.58,16.9,MTF Breakdown,Information Technology
+NSLNISP,35.51,WEAK SELL,35,33.3,36.99,43.1,26.1,0.62,0.23,-9.03,,MTF Breakdown,Metals & Mining
+ACC,1325.9,WEAK SELL,35,1259.29,1370.3,36.2,54.9,0.67,-0.15,-14.61,9.4,MTF Breakdown,Construction Materials
+ADANIGREEN,856.0,WEAK SELL,35,800.58,892.95,46.3,28.0,2.6,0.48,-5.0,100.0,MTF Breakdown,Power
+BAJFINANCE,826.85,WEAK SELL,35,776.38,860.5,38.7,31.0,0.78,1.17,-11.61,28.6,MTF Breakdown,Financial Services
+DLF,522.25,WEAK SELL,35,491.08,543.03,38.4,35.5,1.33,2.45,-12.63,29.2,MTF Breakdown,Realty
+CYIENT,804.85,WEAK SELL,35,748.67,842.31,37.6,39.1,1.19,3.13,-17.02,16.4,MTF Breakdown,Information Technology
+HOMEFIRST,959.25,WEAK SELL,35,897.09,1000.69,41.6,28.5,0.59,0.93,-11.84,19.6,MTF Breakdown,Financial Services
+INOXWIND,79.55,WEAK SELL,35,73.09,83.86,41.9,25.9,0.82,-1.22,-15.68,29.0,MTF Breakdown,Capital Goods
+INTELLECT,657.9,WEAK SELL,35,612.28,688.31,46.3,29.1,0.56,3.46,-9.94,25.8,MTF Breakdown,Information Technology
+RITES,190.75,WEAK SELL,35,179.59,198.19,44.2,31.6,0.83,0.71,-8.98,22.2,MTF Breakdown,Construction
+INFY,1300.8,WEAK SELL,35,1241.61,1340.26,48.9,25.8,1.1,1.97,-7.26,18.1,MTF Breakdown,Information Technology
+INDHOTEL,582.75,WEAK SELL,35,550.6,604.19,38.0,37.6,1.1,-0.42,-10.37,41.3,MTF Breakdown,Consumer Services
+INDIGO,4193.5,WEAK SELL,35,3911.39,4381.57,44.9,27.9,0.97,0.3,-9.0,50.5,MTF Breakdown,Services
+IKS,1342.9,WEAK SELL,35,1259.54,1398.47,43.5,30.0,0.44,0.86,-10.31,34.5,MTF Breakdown,Information Technology
+JKCEMENT,5170.5,WEAK SELL,35,4894.91,5354.22,46.4,26.8,0.39,0.59,-5.64,39.2,MTF Breakdown,Construction Materials
+RAILTEL,263.55,WEAK SELL,35,244.38,276.33,41.3,25.3,0.78,-0.09,-14.1,26.6,MTF Breakdown,Telecommunication
+RELIANCE,1350.5,WEAK SELL,35,1299.12,1384.75,40.3,26.3,1.03,-1.37,-3.98,22.0,MTF Breakdown,Oil Gas & Consumable Fuels
+RHIM,364.0,WEAK SELL,35,336.42,382.39,43.0,36.0,0.29,-0.04,-11.85,43.9,MTF Breakdown,Capital Goods
+RKFORGE,503.0,WEAK SELL,35,465.24,528.18,45.0,25.5,0.63,0.21,-5.97,42.2,MTF Breakdown,Automobile and Auto Components
+GAIL,141.73,WEAK SELL,35,134.3,146.68,40.1,38.3,0.88,0.75,-9.19,10.9,MTF Breakdown,Oil Gas & Consumable Fuels
+FSL,217.78,WEAK SELL,35,200.33,229.42,44.9,28.6,0.65,1.34,-13.2,24.4,MTF Breakdown,Services
+FIVESTAR,360.6,WEAK SELL,35,333.01,378.99,39.9,31.4,0.6,0.15,-14.51,9.6,MTF Breakdown,Financial Services
+ECLERX,1446.9,WEAK SELL,35,1321.9,1530.24,38.7,40.8,1.18,-2.51,-19.61,20.8,MTF Breakdown,Services
+SYNGENE,391.1,WEAK SELL,35,366.91,407.23,37.5,25.8,0.32,-1.34,-12.43,44.9,MTF Breakdown,Healthcare
+ERIS,1332.1,WEAK SELL,35,1259.89,1380.24,49.5,28.0,0.28,1.67,-2.33,42.2,MTF Breakdown,Healthcare
+ETERNAL,231.72,WEAK SELL,35,216.27,242.02,44.2,28.0,1.18,-2.03,-9.87,1007.5,MTF Breakdown,Consumer Services
+SWANCORP,314.15,WEAK SELL,35,285.99,332.93,38.0,27.5,0.85,-2.41,-16.93,,MTF Breakdown,Chemicals
+DALBHARAT,1794.3,WEAK SELL,35,1689.23,1864.35,40.3,34.2,0.51,-0.65,-10.57,28.4,MTF Breakdown,Construction Materials
+GRASIM,2564.1,WEAK SELL,35,2450.28,2639.98,40.7,33.2,0.39,-1.11,-7.28,38.5,MTF Breakdown,Construction Materials
+SHREECEM,23125.0,WEAK SELL,35,22120.26,23794.82,39.6,38.9,0.56,-0.6,-9.61,46.5,MTF Breakdown,Construction Materials
+SIGNATURE,749.5,WEAK SELL,35,690.5,788.83,37.3,30.9,2.15,3.57,-15.19,3406.8,MTF Breakdown,Realty
+SONATSOFTW,231.79,WEAK SELL,35,213.36,244.08,41.8,40.0,0.95,5.01,-15.0,14.6,MTF Breakdown,Information Technology
+GODREJIND,841.9,WEAK SELL,35,779.52,883.49,44.8,34.1,0.69,1.21,-10.67,29.0,MTF Breakdown,Diversified
+HEXT,443.95,WEAK SELL,35,409.33,467.03,42.0,42.9,2.76,2.67,-17.75,20.0,MTF Breakdown,Information Technology
+HDFCAMC,2348.6,WEAK SELL,35,2211.22,2440.18,43.3,27.7,0.8,0.35,-8.46,35.1,MTF Breakdown,Financial Services
+AWL,183.71,WEAK SELL,35,171.43,191.9,48.6,25.4,0.25,0.59,-5.55,25.3,MTF Breakdown,Fast Moving Consumer Goods
+BAJAJHFL,78.0,WEAK SELL,35,74.13,80.58,38.6,29.0,0.7,1.01,-9.28,26.3,MTF Breakdown,Financial Services
+BERGEPAINT,422.25,WEAK SELL,35,402.87,435.17,45.3,53.0,0.79,1.07,-6.6,46.7,MTF Breakdown,Consumer Durables
+DEEPAKNTR,1377.7,WEAK SELL,35,1295.59,1432.44,42.3,31.6,0.68,1.89,-10.16,35.2,MTF Breakdown,Chemicals
+TATAELXSI,4241.3,WEAK SELL,35,3987.76,4410.32,44.9,25.5,0.86,2.77,-10.69,45.5,MTF Breakdown,Information Technology
+TATACHEM,651.9,WEAK SELL,35,613.69,677.37,48.4,33.1,10.36,7.44,-5.52,102.0,MTF Breakdown,Chemicals
+TATACOMM,1387.3,WEAK SELL,35,1299.45,1445.86,40.1,34.1,0.78,-0.21,-10.13,25.6,MTF Breakdown,Telecommunication
+CAPLIPOINT,1565.8,WEAK SELL,35,1491.81,1615.12,38.6,34.0,0.84,-0.27,-7.96,19.5,MTF Breakdown,Healthcare
+CENTRALBK,33.29,WEAK SELL,35,31.37,34.57,41.4,37.3,0.64,0.63,-8.96,6.1,MTF Breakdown,Financial Services
+CDSL,1186.3,WEAK SELL,35,1118.0,1231.83,45.3,31.6,0.99,0.3,-7.35,52.1,MTF Breakdown,Financial Services
+CHALET,728.5,WEAK SELL,35,684.42,757.89,42.4,36.3,0.3,1.5,-9.6,26.3,MTF Breakdown,Consumer Services
+BSOFT,370.85,WEAK SELL,35,342.78,389.56,51.5,19.3,2.0,6.06,-5.01,22.3,Death Cross,Information Technology
+TCS,2450.7,WEAK SELL,35,2348.34,2518.94,42.5,39.5,1.39,1.76,-9.93,18.6,MTF Breakdown,Information Technology
+TATATECH,541.1,WEAK SELL,35,510.16,561.72,45.6,28.7,0.75,1.89,-8.53,41.3,MTF Breakdown,Information Technology
+CONCOR,439.25,WEAK SELL,35,416.35,454.51,41.0,30.7,0.7,-1.19,-9.01,26.2,MTF Breakdown,Services
+CHOLAHLDNG,1396.9,WEAK SELL,35,1297.81,1462.96,36.0,44.1,0.45,0.74,-12.96,11.1,MTF Breakdown,Financial Services
+TRENT,3550.6,WEAK SELL,35,3343.43,3688.71,46.1,38.1,1.16,0.68,-6.93,76.9,MTF Breakdown,Consumer Services
+AMBER,6281.5,WEAK SELL,35,5827.77,6583.99,37.4,28.9,1.16,-4.53,-9.02,135.1,MTF Breakdown,Consumer Durables
+ANANTRAJ,451.75,WEAK SELL,35,415.84,475.69,44.6,26.3,1.07,0.79,-10.63,29.8,MTF Breakdown,Realty
+BATAINDIA,657.15,WEAK SELL,35,614.91,685.31,39.5,37.7,1.33,4.63,-15.79,47.4,MTF Breakdown,Consumer Durables
+APOLLOTYRE,409.45,WEAK SELL,35,388.32,423.54,38.8,35.4,0.39,-1.4,-10.86,28.0,MTF Breakdown,Automobile and Auto Components
+ARE&M,728.0,WEAK SELL,35,688.57,754.28,38.5,42.7,0.89,1.98,-10.83,17.9,MTF Breakdown,Automobile and Auto Components
+ASIANPAINT,2169.0,WEAK SELL,35,2070.49,2234.67,40.9,32.2,1.55,-2.55,-8.47,54.0,MTF Breakdown,Consumer Durables
+BBTC,1410.7,WEAK SELL,35,1326.02,1467.15,36.2,40.7,0.72,0.45,-14.32,8.9,MTF Breakdown,Fast Moving Consumer Goods
+UPL,593.0,WEAK SELL,35,557.52,616.65,39.9,35.3,0.54,-0.25,-11.96,28.3,MTF Breakdown,Chemicals
+UCOBANK,23.9,WEAK SELL,35,22.39,24.91,39.1,35.5,0.83,0.93,-12.88,11.6,MTF Breakdown,Financial Services
+VBL,403.7,WEAK SELL,35,382.55,417.8,43.6,28.6,0.52,0.47,-8.49,45.1,MTF Breakdown,Fast Moving Consumer Goods
+AMBUJACEM,418.45,WEAK SELL,35,395.4,433.82,38.9,47.4,0.56,-0.45,-14.39,27.9,MTF Breakdown,Construction Materials
+IDFCFIRSTB,60.22,WEAK SELL,25,56.6,62.63,33.4,49.0,0.7,0.07,-18.9,31.7,"Death Cross, MTF Breakdown",Financial Services
+ICICIPRULI,503.4,WEAK SELL,25,475.54,521.98,19.4,45.7,1.14,-1.94,-18.47,53.2,"Death Cross, MTF Breakdown",Financial Services
+IIFL,434.9,WEAK SELL,25,405.18,454.71,34.1,31.5,0.77,-0.65,-13.48,14.6,"Death Cross, MTF Breakdown",Financial Services
+TATACONSUM,1042.0,STRONG SELL,20,986.16,1083.88,40.4,27.7,1.69,1.78,-6.98,70.4,"Death Cross, MTF Breakdown",Fast Moving Consumer Goods
