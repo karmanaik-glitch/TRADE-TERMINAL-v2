@@ -595,7 +595,7 @@ function ic(v){return v==='BUY'?'▲':v==='SELL'?'▼':v==='WATCH'?'◈':'·'}
 
 // ─── SCREENER ────────────────────────────────────────────────
 function renderScreener(){
-  let data=signals.filter(s=>filter==='ALL'||s.Signal===filter);
+ let data=signals.filter(s=>filter==='ALL'||(s.Signal && s.Signal.includes(filter)));
   data.sort((a,b)=>{
     let av=a[sort.col],bv=b[sort.col];
     if(typeof av==='string')av=av.toLowerCase();
