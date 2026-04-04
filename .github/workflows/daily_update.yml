@@ -3,10 +3,14 @@ name: Daily Market Engine Update
 # 1. THE TRIGGER: When should this run?
 on:
   schedule:
-    # This runs at 10:30 AM UTC, which is 4:00 PM IST (After Indian markets close)
-    # It runs Monday through Friday.
-    - cron: '30 10 * * 1-5'
-  
+    # 1. MORNING RUN: 10:00 AM IST (4:30 AM UTC)
+    - cron: '30 4 * * 1-5'
+    
+    # 2. MID-DAY RUN: 1:00 PM IST (7:30 AM UTC)
+    - cron: '30 7 * * 1-5'
+    
+    # 3. CLOSING RUN: 3:45 PM IST (10:15 AM UTC)
+    - cron: '15 10 * * 1-5'
   # This allows you to click a "Run" button manually on GitHub whenever you want
   workflow_dispatch: 
 
@@ -17,10 +21,10 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12' 
 
