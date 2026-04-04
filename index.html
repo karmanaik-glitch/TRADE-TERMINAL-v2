@@ -88,7 +88,18 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .ftab.on-sell{background:var(--rbg);border-color:var(--rdim);color:var(--red)}
 .ftab.on-watch{background:var(--abg);border-color:var(--adim);color:var(--amber)}
 .scr-count{font-size:9px;color:var(--text3);margin-left:auto;white-space:nowrap}
-.scr-wrap{overflow-y:auto;max-height:510px}
+/* Make the left panel a flex container so it can manage its internal height */
+.main-grid > .panel:first-child {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tell the table wrapper to fill all remaining space and scroll if needed */
+.scr-wrap {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
 .scr-table{width:100%;border-collapse:collapse}
 .scr-table th{position:sticky;top:0;z-index:5;padding:5px 8px;font-size:9px;color:var(--text3);
   letter-spacing:.07em;text-transform:uppercase;background:var(--bg3);
