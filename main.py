@@ -210,14 +210,28 @@ def evaluate_stock(df, ticker, sector_pe, fund_data):
     elif abs(c - ma50)/ma50 < 0.02 and (40 < rsi_d < 55):
         signal = "WATCH"
 
+   # Calculate 52-Week High
+    high_52w = df['High'].rolling(250).max().iloc[-1] if len(df) >= 250 else c
+    pct_52w_high = ((c - high_52w) / high_52w) * 100 if high_52w > 0 else 0
+
     return {
-        "Ticker": ticker, "Price": round(c, 2), "Signal": signal, "Score": score,
+        "Ticker": ticker, 
+        "Close": round(c, 2),  # Changed from 'Price' to 'Close' so HTML reads it
+        "Signal": signal, 
+        "Score": score,
         "Target": round(target, 2) if target > 0 else "-",
         "StopLoss": round(stoploss, 2) if stoploss > 0 else "-",
-        "RSI": round(rsi_d, 1), "ADX": round(adx, 1), "Vol_Ratio": round(vol_ratio, 2),
+        "RSI": round(rsi_d, 1), 
+        "ADX": round(adx, 1), 
+        "Vol_Ratio": round(vol_ratio, 2),
         "Return_1D_pct": round(((c - prev['Close']) / prev['Close']) * 100, 2),
         "Pct_vs_MA50": round(((c - ma50) / ma50) * 100, 2),
         "PE_Ratio": round(pe, 1) if pd.notna(pe) else None,
+        "MACD": round(macd, 4),
+        "MACD_Signal_Line": round(macd_sig, 4),
+        "MACD_Hist": round(macd_hist, 4),
+        "ATR": round(atr, 2),
+        "Pct_from_52W_High": round(pct_52w_high, 1),
         "Rules_Fired": ", ".join(rules_buy + rules_sell) if (rules_buy or rules_sell) else "None"
     }
 
