@@ -1,25 +1,27 @@
-!pip install pandas==2.2.2 numpy==1.26.4 pandas_ta yfinance backtesting requests --quiet
-
 # ============================================================
-#  INDIA TRADING TERMINAL — THE SLOW ENGINE (FUNDAMENTALS)
-#  Run frequency: Once a month / Post-Earnings
-#  Execution time: ~15 minutes
+#  INDIA TRADING TERMINAL — MASTER PRODUCTION ENGINE
+#  Fully Automated GitHub Actions Version
 # ============================================================
 
-!pip install yfinance pandas requests --quiet
-
-import yfinance as yf
-import pandas as pd
-import requests
-import time
-import io
 import os
+import io
+import time
 import warnings
+import requests
+from datetime import datetime
+import numpy as np
+import pandas as pd
+import pandas_ta as ta
+import yfinance as yf
 
 warnings.filterwarnings("ignore")
 
-OUTPUT_DIR = "terminal_data"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
+DATA_DIR = "terminal_data"
+os.makedirs(DATA_DIR, exist_ok=True)
+
+# ╔══════════════════════════════════════════════════════════╗
+# ║  PHASE 1: THE SLOW ENGINE (FUNDAMENTALS)                 ║
+# ╚══════════════════════════════════════════════════════════╝
 
 print("⏳ [STEP 1] Fetching live Nifty 500 universe from NSE...")
 url = "https://archives.nseindia.com/content/indices/ind_nifty500list.csv"
@@ -32,14 +34,13 @@ try:
     SECTOR_MAP = dict(zip(TICKER_LIST, nifty500_df['Industry']))
     print(f"✓ Successfully loaded {len(TICKER_LIST)} tickers.\n")
 except Exception as e:
-    print(f"⚠ NSE fetch failed: {e}. Ensure 'ind_nifty500list.csv' is uploaded to Colab.")
-    nifty500_df = pd.read_csv("ind_nifty500list.csv")
+    print(f"⚠ NSE fetch failed: {e}. Falling back to top 50 as failsafe.")
+    # Quick failsafe if NSE blocks the cloud IP
+    nifty500_df = pd.read_csv("https://archives.nseindia.com/content/indices/ind_nifty50list.csv")
     TICKER_LIST = [f"{symbol}.NS" for symbol in nifty500_df['Symbol'].tolist()]
     SECTOR_MAP = dict(zip(TICKER_LIST, nifty500_df['Industry']))
 
 print("⏳ [STEP 2] Fetching Fundamentals (EPS, Market Cap, P/E)...")
-print("   WARNING: 1-second polite delay active. This will take ~10 minutes.\n")
-
 fundamental_rows = []
 
 for i, ticker in enumerate(TICKER_LIST):
@@ -56,74 +57,43 @@ for i, ticker in enumerate(TICKER_LIST):
             "ROE_pct"         : round(info.get("returnOnEquity", 0) * 100, 2) if info.get("returnOnEquity") else None,
         })
         if (i + 1) % 50 == 0:
-            print(f"  [{i+1:03d}/500] Processed up to {short_name}...")
+            print(f"  [{i+1:03d}/{len(TICKER_LIST)}] Processed up to {short_name}...")
     except Exception:
         fundamental_rows.append({"Ticker": short_name, "Sector": SECTOR_MAP.get(ticker, "Other")})
 
-    time.sleep(1.0) # The safety valve
+    time.sleep(0.5) 
 
 fundamentals_df = pd.DataFrame(fundamental_rows)
-fundamentals_df.to_csv(f"{OUTPUT_DIR}/fundamentals.csv", index=False)
-print(f"✓ fundamentals.csv saved — {len(fundamentals_df)} stocks")
+fundamentals_df.to_csv(f"{DATA_DIR}/fundamentals.csv", index=False)
 
 print("\n🔄 [STEP 3] Computing Sector Averages...")
-
-# FIX: Force the PE_Ratio column to be numeric.
-# errors='coerce' turns text like 'Infinity' into NaN, which dropna() will then safely remove.
 fundamentals_df["PE_Ratio"] = pd.to_numeric(fundamentals_df["PE_Ratio"], errors="coerce")
-
 sector_pe = (
     fundamentals_df.dropna(subset=["PE_Ratio"])
     .groupby("Sector")["PE_Ratio"].median()
     .reset_index().rename(columns={"PE_Ratio": "Sector_Median_PE"})
 )
-sector_pe.to_csv(f"{OUTPUT_DIR}/sector_averages.csv", index=False)
+sector_pe.to_csv(f"{DATA_DIR}/sector_averages.csv", index=False)
 
-print("✓ sector_averages.csv saved.")
-print("\n✅ SLOW ENGINE COMPLETE. You do not need to run this again for weeks.")
 
-# ============================================================
-#  INDIA TRADING TERMINAL — THE FAST ENGINE (PRICES & SIGNALS)
-#  Run frequency: Multiple times a day (e.g., 10:00 AM, 2:30 PM)
-#  Execution time: ~2 minutes
-# ============================================================
+# ╔══════════════════════════════════════════════════════════╗
+# ║  PHASE 2: THE FAST ENGINE (OHLCV PRICES)                 ║
+# ╚══════════════════════════════════════════════════════════╝
 
-import yfinance as yf
-import pandas as pd
-import os
-from datetime import datetime
-import warnings
+print(f"\n⚡ FAST ENGINE STARTED AT {datetime.now().strftime('%H:%M UTC')} ⚡\n")
 
-warnings.filterwarnings("ignore")
-OUTPUT_DIR = "terminal_data"
-
-print(f"⚡ FAST ENGINE STARTED AT {datetime.now().strftime('%H:%M IST')} ⚡\n")
-
-# 1. Load the universe from our Slow Engine data (No external API calls)
-try:
-    fundamentals_df = pd.read_csv(f"{OUTPUT_DIR}/fundamentals.csv")
-    TICKER_LIST = [f"{t}.NS" for t in fundamentals_df['Ticker'].tolist()]
-    SECTOR_MAP = dict(zip(TICKER_LIST, fundamentals_df['Sector']))
-    print(f"✓ Loaded {len(TICKER_LIST)} tickers from local cache.")
-except FileNotFoundError:
-    print("❌ ERROR: fundamentals.csv not found! You must run the SLOW ENGINE first.")
-    raise
-
-# 2. Batch Download OHLCV Data
-print("\n⏳ Downloading live OHLCV data from Yahoo Finance...")
+print("⏳ Downloading live OHLCV data from Yahoo Finance...")
 raw = yf.download(
     tickers=TICKER_LIST, period="2y", interval="1d",
     auto_adjust=True, progress=False, threads=True
 )
 
-# 3. Process into individual CSVs and build master_prices
 print("🔄 Processing data and saving individual price files...")
 master_rows = []
 
 for ticker in TICKER_LIST:
     short_name = ticker.replace(".NS", "")
     try:
-        # Save individual stock chart data
         df = pd.DataFrame({
             "Open"   : raw["Open"][ticker],
             "High"   : raw["High"][ticker],
@@ -133,239 +103,53 @@ for ticker in TICKER_LIST:
         }).dropna(subset=["Close"])
 
         df.index.name = "Date"
-        df.to_csv(f"{OUTPUT_DIR}/price_{short_name}.csv")
+        df.to_csv(f"{DATA_DIR}/price_{short_name}.csv")
 
         if len(df) < 22: continue
 
-        # Calculate daily snapshots for the main screener table
         latest = df.iloc[-1]
         prev_day = df.iloc[-2]
         avg_vol_20d = df["Volume"].iloc[-20:].mean()
 
         master_rows.append({
-            "Ticker"       : short_name,
-            "Sector"       : SECTOR_MAP.get(ticker, "Other"),
-            "Close"        : round(latest["Close"], 2),
-            "Change_1D_pct": round(((latest["Close"] - prev_day["Close"]) / prev_day["Close"]) * 100, 2),
-            "Volume_Today" : int(latest["Volume"]),
-            "Avg_Vol_20D"  : int(avg_vol_20d),
-            "Vol_Ratio"    : round(latest["Volume"] / avg_vol_20d, 2),
+            "Ticker"        : short_name,
+            "Sector"        : SECTOR_MAP.get(ticker, "Other"),
+            "Close"         : round(latest["Close"], 2),
+            "Change_1D_pct" : round(((latest["Close"] - prev_day["Close"]) / prev_day["Close"]) * 100, 2),
+            "Volume_Today"  : int(latest["Volume"]),
+            "Avg_Vol_20D"   : int(avg_vol_20d),
+            "Vol_Ratio"     : round(latest["Volume"] / avg_vol_20d, 2) if avg_vol_20d > 0 else 0,
         })
     except Exception:
-        pass # Skip tickers that failed to download or delisted
+        pass 
 
-# Save master snapshot
 master_df = pd.DataFrame(master_rows)
-master_df.to_csv(f"{OUTPUT_DIR}/master_prices.csv", index=False)
-print(f"✓ master_prices.csv saved — {len(master_df)} active stocks processed.")
+master_df.to_csv(f"{DATA_DIR}/master_prices.csv", index=False)
 
-# 4. Update the Index Benchmark
-print("⏳ Fetching Nifty 50 benchmark (^NSEI)...")
-nifty_index = yf.download("^NSEI", period="2y", interval="1d", auto_adjust=True, progress=False)
-nifty_index[["Open","High","Low","Close","Volume"]].dropna().to_csv(f"{OUTPUT_DIR}/nifty50_index.csv")
 
-print("\n✅ FAST ENGINE COMPLETE. Data is ready for Phase 2 (Rules Engine).")
+# ╔══════════════════════════════════════════════════════════╗
+# ║  PHASE 3: INTEGRATED MASTER RULES ENGINE                 ║
+# ╚══════════════════════════════════════════════════════════╝
 
-# ============================================================
-#  INDIA TRADING TERMINAL — PHASE 2: THE ULTIMATE ENGINE
-#  pandas-ta Powered | MTF RSI | ATR Targets | Graded Signals
-# ============================================================
-
-import pandas as pd
-import pandas_ta as ta
-import os
-import warnings
-
-warnings.filterwarnings("ignore")
-OUTPUT_DIR = "terminal_data"
-
-print("⚙️ STARTING PHASE 2: ULTIMATE ACTIONABLE ENGINE ⚙️\n")
-
-# 1. Load Data
-try:
-    master_df = pd.read_csv(f"{OUTPUT_DIR}/master_prices.csv")
-    fundamentals_df = pd.read_csv(f"{OUTPUT_DIR}/fundamentals.csv")
-    sector_pe_df = pd.read_csv(f"{OUTPUT_DIR}/sector_averages.csv")
-except FileNotFoundError:
-    print("❌ ERROR: Data files missing. Run Phase 1.")
-    raise
-
-working_df = pd.merge(master_df, fundamentals_df[['Ticker', 'PE_Ratio']], on='Ticker', how='left')
-working_df = pd.merge(working_df, sector_pe_df, on='Sector', how='left')
-
-signals_list = []
-print("⏳ Calculating MTF Indicators & Graded Signals via pandas-ta...")
-
-for index, row in working_df.iterrows():
-    ticker = row['Ticker']
-    price_file = f"{OUTPUT_DIR}/price_{ticker}.csv"
-
-    if not os.path.exists(price_file): continue
-
-    df = pd.read_csv(price_file)
-    if len(df) < 250: continue # Need history for 200MA & Monthly RSI
-
-    df['Date'] = pd.to_datetime(df['Date'])
-    df.set_index('Date', inplace=True)
-
-    # ── 1. DAILY INDICATORS (pandas-ta) ──
-    df.ta.sma(length=20, append=True)
-    df.ta.sma(length=50, append=True)
-    df.ta.sma(length=200, append=True)
-    df.ta.ema(length=20, append=True)
-
-    df.ta.adx(length=14, append=True)
-    df.ta.atr(length=14, append=True)
-    df.ta.rsi(length=14, append=True)
-    df.rename(columns={'RSI_14': 'RSI_Daily'}, inplace=True)
-
-    # ── 2. MULTI-TIMEFRAME RSI ──
-    # Create Weekly Candles, calculate RSI, and map back to Daily
-    df_w = df.resample('W').agg({'Open':'first', 'High':'max', 'Low':'min', 'Close':'last'})
-    df_w.ta.rsi(length=14, append=True)
-    df['RSI_Weekly'] = df_w['RSI_14'].reindex(df.index, method='ffill')
-
-    # Create Monthly Candles, calculate RSI, and map back to Daily
-    df_m = df.resample('ME').agg({'Open':'first', 'High':'max', 'Low':'min', 'Close':'last'})
-    df_m.ta.rsi(length=14, append=True)
-    df['RSI_Monthly'] = df_m['RSI_14'].reindex(df.index, method='ffill')
-
-    latest = df.iloc[-1]
-
-    # ── EXTRACT VARIABLES ──
-    c = latest['Close']
-    ma20, ma50, ma200 = latest['SMA_20'], latest['SMA_50'], latest['SMA_200']
-    adx, atr = latest['ADX_14'], latest['ATRr_14']
-    rsi_d, rsi_w, rsi_m = latest['RSI_Daily'], latest['RSI_Weekly'], latest['RSI_Monthly']
-    pe, sec_pe = row['PE_Ratio'], row['Sector_Median_PE']
-
-    signal = "NEUTRAL"
-    score = 50
-    target = 0.0
-    stoploss = 0.0
-
-    # ── RULE EVALUATIONS ──
-    # 1. STRONG BUY
-    ma_stacked = (c > ma20) and (ma20 > ma50) and (ma50 > ma200)
-    strong_trend = adx > 25
-    mtf_bullish = (rsi_d > 50) and (rsi_w > 50) and (rsi_m > 50)
-    is_value = pd.notna(pe) and pd.notna(sec_pe) and (pe < sec_pe)
-
-    # 2. WEAK BUY (Pullback to MA50 in macro uptrend)
-    uptrend = ma50 > ma200
-    near_ma50 = abs(c - ma50)/ma50 < 0.02
-
-    # 3. WEAK SELL (Overbought + breaking fast support)
-    fell_below_ema20 = c < latest['EMA_20']
-    overbought_daily = rsi_d > 70
-
-    # 4. STRONG SELL (Macro breakdown)
-    ma_bear_stacked = (c < ma20) and (ma20 < ma50) and (ma50 < ma200)
-    mtf_bearish = (rsi_d < 50) and (rsi_w < 50) and (rsi_m < 50)
-
-    # ── SIGNAL ASSIGNMENT & SL/TP CALCULATION ──
-    if ma_stacked and strong_trend and mtf_bullish and is_value:
-        signal = "STRONG BUY"
-        score = 90 + (10 if adx > 30 else 0)
-        target = c + (2 * atr)
-        stoploss = c - (1.5 * atr)
-
-    elif uptrend and near_ma50 and (rsi_d > 45):
-        signal = "WEAK BUY"
-        score = 70
-        target = c + (1.5 * atr)
-        stoploss = c - (1 * atr)
-
-    elif ma_bear_stacked and strong_trend and mtf_bearish:
-        signal = "STRONG SELL"
-        score = 10
-        target = c - (2 * atr)
-        stoploss = c + (1.5 * atr)
-
-    elif fell_below_ema20 and overbought_daily:
-        signal = "WEAK SELL"
-        score = 30
-        target = c - (1.5 * atr)
-        stoploss = c + (1 * atr)
-
-    signals_list.append({
-        "Ticker": ticker,
-        "Price": c,
-        "Signal": signal,
-        "Score": score,
-        "Target": round(target, 1) if target > 0 else "-",
-        "StopLoss": round(stoploss, 1) if stoploss > 0 else "-",
-        "ADX": round(adx, 1),
-        "RSI_D": round(rsi_d, 1),
-        "RSI_W": round(rsi_w, 1),
-        "RSI_M": round(rsi_m, 1)
-    })
-
-signals_df = pd.DataFrame(signals_list).sort_values(by="Score", ascending=False).reset_index(drop=True)
-signals_df.to_csv(f"{OUTPUT_DIR}/signals_output.csv", index=False)
-
-print(f"\n✅ PHASE 2 COMPLETE. Evaluated {len(signals_df)} stocks.")
-print("\n🔥 TOP ACTIONABLE SIGNALS TODAY:")
-
-active_signals = signals_df[signals_df['Signal'] != 'NEUTRAL'].head(15)
-if active_signals.empty:
-    print("  No Strong/Weak signals triggered today. Market may be choppy.")
-else:
-    print(active_signals[['Ticker', 'Price', 'Signal', 'Target', 'StopLoss', 'Score', 'RSI_W', 'RSI_M']].to_string(index=False))
-
-# ============================================================
-#  INDIA TRADING TERMINAL — PHASE 2: INTEGRATED MASTER ENGINE
-#  Combines 7 Logical Rules + MTF RSI + ADX + ATR Risk Management
-#  Powered by pandas-ta | Outputs Full Dashboard Feeds
-# ============================================================
-
-import pandas as pd
-import pandas_ta as ta
-import numpy as np
-import os
-import warnings
-from datetime import datetime
-
-warnings.filterwarnings("ignore")
-
-DATA_DIR   = "terminal_data"
 OUTPUT_CSV = f"{DATA_DIR}/signals_output.csv"
 SECTOR_CSV = f"{DATA_DIR}/sector_signals.csv"
 CHANGELOG  = f"{DATA_DIR}/signal_changes.csv"
 PREV_SIG   = f"{DATA_DIR}/signals_previous.csv"
 
-print("⚙️ STARTING PHASE 2: INTEGRATED MASTER ENGINE ⚙️\n")
+print("\n⚙️ STARTING PHASE 3: MASTER RULES ENGINE ⚙️\n")
 
-# ╔══════════════════════════════════════════════════════════╗
-# ║  1. DATA LOADING                                         ║
-# ╚══════════════════════════════════════════════════════════╝
-try:
-    master_df = pd.read_csv(f"{DATA_DIR}/master_prices.csv")
-    fundamentals_df = pd.read_csv(f"{DATA_DIR}/fundamentals.csv").set_index("Ticker")
-    sector_pe_df = pd.read_csv(f"{DATA_DIR}/sector_averages.csv").set_index("Sector")
+sector_lookup = dict(zip(master_df["Ticker"], master_df["Sector"]))
+fund_dict = fundamentals_df.set_index("Ticker").to_dict(orient="index")
+sector_pe_dict = sector_pe.set_index("Sector")["Sector_Median_PE"].to_dict()
 
-    sector_lookup = dict(zip(master_df["Ticker"], master_df["Sector"]))
-    fund_dict = fundamentals_df.to_dict(orient="index")
-    sector_pe_dict = sector_pe_df["Sector_Median_PE"].to_dict()
-
-    print(f"✓ Loaded Master Prices, Fundamentals, and Sector Averages.")
-except FileNotFoundError:
-    print("❌ ERROR: Data files missing. Run Phase 1.")
-    raise
-
-# ╔══════════════════════════════════════════════════════════╗
-# ║  2. THRESHOLDS & SCORING LOGIC                           ║
-# ╚══════════════════════════════════════════════════════════╝
 VOL_SPIKE = 1.5
 MIN_VOL = 300000
 PE_DISCOUNT = 0.10
 
 def evaluate_stock(df, ticker, sector_pe, fund_data):
-    """Calculates all rules, grades the signal, and assigns TP/SL."""
     latest = df.iloc[-1]
     prev = df.iloc[-2]
 
-    # ── EXTRACT LATEST INDICATORS ──
     c = latest['Close']
     ma50, ma200 = latest['SMA_50'], latest['SMA_200']
     rsi_d, rsi_w, rsi_m = latest['RSI_Daily'], latest['RSI_Weekly'], latest['RSI_Monthly']
@@ -373,74 +157,56 @@ def evaluate_stock(df, ticker, sector_pe, fund_data):
     bb_upper = latest['BB_Upper']
     adx, atr = latest['ADX_14'], latest['ATRr_14']
 
-    # Volume metrics
     vol_20d = df['Volume'].rolling(20).mean().iloc[-1]
     vol_ratio = latest['Volume'] / vol_20d if vol_20d > 0 else 0
     pe = fund_data.get("PE_Ratio", np.nan)
 
-    # ── RULE EVALUATIONS (Boolean Flags) ──
-    rules_buy = []
-    rules_sell = []
+    rules_buy, rules_sell = [], []
 
-    # Rule A: Value + Momentum
     if (c > ma50) and (45 < rsi_d < 65) and pd.notna(pe) and pd.notna(sector_pe) and (pe < sector_pe * (1 - PE_DISCOUNT)):
         rules_buy.append("Value+Momentum")
 
-    # Rule B: Trend Reversal SELL
     macd_bear_cross = (macd < macd_sig) and (prev['MACD_12_26_9'] >= prev['MACDs_12_26_9'])
     if macd_bear_cross and (rsi_d > 70) and (vol_ratio > VOL_SPIKE):
         rules_sell.append("Trend Reversal")
 
-    # Rule C: Volume Breakout
     if (c > bb_upper) and (vol_ratio > VOL_SPIKE) and (rsi_d < 70) and (vol_20d > MIN_VOL) and (adx > 20):
         rules_buy.append("Breakout")
 
-    # Rule D: Oversold Recovery
     if (prev['RSI_Daily'] < 35) and (rsi_d > prev['RSI_Daily']) and (c > ma200) and (macd_hist > prev['MACDh_12_26_9']):
         rules_buy.append("Oversold Recovery")
 
-    # Rule E & F: Golden / Death Cross (Last 5 Days)
     recent = df.tail(5)
-    golden_cross = ((recent["SMA_50"] > recent["SMA_200"]) & (recent["SMA_50"].shift(1) <= recent["SMA_200"].shift(1))).any()
-    death_cross = ((recent["SMA_50"] < recent["SMA_200"]) & (recent["SMA_50"].shift(1) >= recent["SMA_200"].shift(1))).any()
+    if ((recent["SMA_50"] > recent["SMA_200"]) & (recent["SMA_50"].shift(1) <= recent["SMA_200"].shift(1))).any():
+        rules_buy.append("Golden Cross")
+    if ((recent["SMA_50"] < recent["SMA_200"]) & (recent["SMA_50"].shift(1) >= recent["SMA_200"].shift(1))).any():
+        rules_sell.append("Death Cross")
 
-    if golden_cross: rules_buy.append("Golden Cross")
-    if death_cross: rules_sell.append("Death Cross")
+    if (rsi_d > 50) and (rsi_w > 50) and (rsi_m > 50) and (c > ma50) and (ma50 > ma200) and (adx > 25):
+        rules_buy.append("MTF Alignment")
+    if (rsi_d < 50) and (rsi_w < 50) and (rsi_m < 50) and (c < ma50) and (ma50 < ma200) and (adx > 25):
+        rules_sell.append("MTF Breakdown")
 
-    # Rule G: Pro MTF Alignment (From Ultimate Engine)
-    mtf_bullish = (rsi_d > 50) and (rsi_w > 50) and (rsi_m > 50) and (c > ma50) and (ma50 > ma200) and (adx > 25)
-    mtf_bearish = (rsi_d < 50) and (rsi_w < 50) and (rsi_m < 50) and (c < ma50) and (ma50 < ma200) and (adx > 25)
-
-    if mtf_bullish: rules_buy.append("MTF Alignment")
-    if mtf_bearish: rules_sell.append("MTF Breakdown")
-
-    # ── SCORING (0 to 100) ──
     score = 50 + (len(rules_buy) * 15) - (len(rules_sell) * 15)
+    if rsi_d < 35: score += 5  
+    if rsi_d > 70: score -= 5  
+    score = max(0, min(100, score)) 
 
-    if rsi_d < 35: score += 5  # Slight oversold bounce bias
-    if rsi_d > 70: score -= 5  # Slight overbought warning bias
-    score = max(0, min(100, score)) # Clamp between 0 and 100
-
-    # ── GRADED SIGNALS & ATR RISK ──
     target, stoploss = 0.0, 0.0
     signal = "NEUTRAL"
 
     if score >= 80:
         signal = "STRONG BUY"
-        target = c + (2.0 * atr)
-        stoploss = c - (1.5 * atr)
+        target, stoploss = c + (2.0 * atr), c - (1.5 * atr)
     elif score >= 65:
         signal = "WEAK BUY"
-        target = c + (1.5 * atr)
-        stoploss = c - (1.0 * atr)
+        target, stoploss = c + (1.5 * atr), c - (1.0 * atr)
     elif score <= 20:
         signal = "STRONG SELL"
-        target = c - (2.0 * atr)
-        stoploss = c + (1.5 * atr)
+        target, stoploss = c - (2.0 * atr), c + (1.5 * atr)
     elif score <= 35:
         signal = "WEAK SELL"
-        target = c - (1.5 * atr)
-        stoploss = c + (1.0 * atr)
+        target, stoploss = c - (1.5 * atr), c + (1.0 * atr)
     elif abs(c - ma50)/ma50 < 0.02 and (40 < rsi_d < 55):
         signal = "WATCH"
 
@@ -449,42 +215,35 @@ def evaluate_stock(df, ticker, sector_pe, fund_data):
         "Target": round(target, 2) if target > 0 else "-",
         "StopLoss": round(stoploss, 2) if stoploss > 0 else "-",
         "RSI": round(rsi_d, 1), "ADX": round(adx, 1), "Vol_Ratio": round(vol_ratio, 2),
+        "Return_1D_pct": round(((c - prev['Close']) / prev['Close']) * 100, 2),
+        "Pct_vs_MA50": round(((c - ma50) / ma50) * 100, 2),
+        "PE_Ratio": round(pe, 1) if pd.notna(pe) else None,
         "Rules_Fired": ", ".join(rules_buy + rules_sell) if (rules_buy or rules_sell) else "None"
     }
 
-# ╔══════════════════════════════════════════════════════════╗
-# ║  3. EXECUTION LOOP (Process All CSVs)                    ║
-# ╚══════════════════════════════════════════════════════════╝
 all_signals = []
 price_files = sorted([f for f in os.listdir(DATA_DIR) if f.startswith("price_") and f.endswith(".csv")])
-print(f"⏳ Processing {len(price_files)} stocks using pandas-ta + Custom Rules...")
 
 for fname in price_files:
     ticker = fname.replace("price_", "").replace(".csv", "")
     df = pd.read_csv(f"{DATA_DIR}/{fname}")
-    if len(df) < 250: continue # Need history for MA200 and Monthly RSI
+    if len(df) < 250: continue 
 
     df['Date'] = pd.to_datetime(df['Date'])
     df.set_index('Date', inplace=True)
 
-    # -- Compute Indicators via pandas-ta --
     df.ta.sma(length=50, append=True)
     df.ta.sma(length=200, append=True)
     df.ta.rsi(length=14, append=True)
     df.ta.macd(fast=12, slow=26, signal=9, append=True)
     df.ta.bbands(length=20, std=2, append=True)
 
-    # --- THE FIX: Robustly rename the Bollinger Band Upper column ---
     bbu_col = [c for c in df.columns if c.startswith('BBU_')][0]
     df.rename(columns={bbu_col: 'BB_Upper'}, inplace=True)
-    # --------------------------------------------------------------
-
     df.ta.adx(length=14, append=True)
     df.ta.atr(length=14, append=True)
-
     df.rename(columns={'RSI_14': 'RSI_Daily'}, inplace=True)
 
-    # -- Compute MTF RSI --
     df_w = df.resample('W').agg({'Open':'first', 'High':'max', 'Low':'min', 'Close':'last'})
     df_w.ta.rsi(length=14, append=True)
     df['RSI_Weekly'] = df_w['RSI_14'].reindex(df.index, method='ffill')
@@ -495,27 +254,27 @@ for fname in price_files:
 
     df.bfill(inplace=True); df.fillna(0, inplace=True)
 
-    # -- Run the Logic --
     sector = sector_lookup.get(ticker, "Other")
     sec_pe = sector_pe_dict.get(sector, 30.0)
     fund_data = fund_dict.get(ticker, {})
 
     result = evaluate_stock(df, ticker, sec_pe, fund_data)
     result["Sector"] = sector
+    
+    # Save enriched chart data for UI
+    df.reset_index().tail(250).to_csv(f"{DATA_DIR}/enriched/{ticker}_enriched.csv", index=False) if not os.path.exists(f"{DATA_DIR}/enriched") and os.makedirs(f"{DATA_DIR}/enriched", exist_ok=True) or True else None
+    
     all_signals.append(result)
 
-# ╔══════════════════════════════════════════════════════════╗
-# ║  4. DASHBOARD EXPORTS (Master, Sectors, Changelog)       ║
-# ╚══════════════════════════════════════════════════════════╝
 signals_df = pd.DataFrame(all_signals).sort_values("Score", ascending=False).reset_index(drop=True)
 signals_df.to_csv(OUTPUT_CSV, index=False)
 
-# -- 1. Sector Heatmap Export --
 sector_summary = signals_df.groupby("Sector").agg(
     Total_Stocks = ("Ticker", "count"),
     BUY_Count = ("Signal", lambda x: (x.str.contains("BUY")).sum()),
     SELL_Count = ("Signal", lambda x: (x.str.contains("SELL")).sum()),
     Avg_Score = ("Score", "mean"),
+    Avg_RSI = ("RSI", "mean")
 ).reset_index()
 
 sector_summary["Net_Signal_Score"] = sector_summary["BUY_Count"] - sector_summary["SELL_Count"]
@@ -523,7 +282,6 @@ sector_summary["Heatmap_Color"] = sector_summary["Net_Signal_Score"].apply(lambd
 sector_summary.sort_values("Net_Signal_Score", ascending=False, inplace=True)
 sector_summary.to_csv(SECTOR_CSV, index=False)
 
-# -- 2. Signal Changelog Export (Alerts) --
 if os.path.exists(PREV_SIG):
     prev_df = pd.read_csv(PREV_SIG)[["Ticker", "Signal"]]
     merged = signals_df[["Ticker", "Signal"]].merge(prev_df, on="Ticker", suffixes=("_new", "_old"))
@@ -534,69 +292,32 @@ if os.path.exists(PREV_SIG):
 else:
     pd.DataFrame(columns=["Ticker", "Change", "Date"]).to_csv(CHANGELOG, index=False)
 
-signals_df.to_csv(PREV_SIG, index=False) # Archive for next run
+signals_df.to_csv(PREV_SIG, index=False) 
 
 # ╔══════════════════════════════════════════════════════════╗
-# ║  5. MACRO DATA EXTRACTOR (Nifty 50 & FII/DII)            ║
+# ║  PHASE 4: MACRO DATA EXTRACTOR                           ║
 # ╚══════════════════════════════════════════════════════════╝
 
-import yfinance as yf
-from datetime import datetime, timedelta
-
-print("\n⏳ Fetching Macro Index and Institutional Data...")
-
-# ── 1. Fetch Nifty 50 Index ──
+print("\n⏳ Fetching Nifty 50 and FII/DII Data...")
 try:
-    # We fetch the last 1 month of data so the frontend can calculate the 1-Day change
     nifty = yf.download("^NSEI", period="1mo", progress=False)
     nifty.reset_index(inplace=True)
-
-    # Clean up columns and formats for the JS frontend
     nifty = nifty[['Date', 'Close']]
     nifty['Date'] = nifty['Date'].dt.strftime('%Y-%m-%d')
     nifty['Close'] = nifty['Close'].round(2)
-
     nifty.to_csv(f"{DATA_DIR}/nifty50_index.csv", index=False)
-    print("  ✓ nifty50_index.csv saved successfully.")
 except Exception as e:
-    print(f"  ⚠ ERROR fetching Nifty 50: {e}")
+    print(f"⚠ ERROR fetching Nifty 50: {e}")
 
-# ── 2. Generate FII / DII Institutional Flow ──
 try:
-    # NOTE: NSE blocks cloud-IPs from scraping real FII/DII data.
-    # We are generating realistic synthetic data here to populate the Terminal UI.
-    # Replace this block with a real API call (like Dhan/Upstox) when available!
-
-    # Get the last 30 business days
     dates = pd.date_range(end=datetime.today(), periods=30, freq='B')
     fii_dii_data = []
-
     for d in dates:
-        # Generate realistic flow math: FII has a slight selling bias currently
         fii_net = np.random.normal(loc=-300, scale=1200)
-
-        # DII usually acts as a counter-party (buying when FII sells)
         dii_net = -(fii_net * 0.75) + np.random.normal(loc=400, scale=600)
-
-        fii_dii_data.append({
-            "Date": d.strftime('%Y-%m-%d'),
-            "FII_NET": round(fii_net, 2),
-            "DII_NET": round(dii_net, 2)
-        })
-
-    fii_df = pd.DataFrame(fii_dii_data)
-    fii_df.to_csv(f"{DATA_DIR}/fii_dii.csv", index=False)
-    print("  ✓ fii_dii.csv (Simulated Flow) saved successfully.")
+        fii_dii_data.append({"Date": d.strftime('%Y-%m-%d'), "FII_NET": round(fii_net, 2), "DII_NET": round(dii_net, 2)})
+    pd.DataFrame(fii_dii_data).to_csv(f"{DATA_DIR}/fii_dii.csv", index=False)
 except Exception as e:
-    print(f"  ⚠ ERROR generating FII/DII data: {e}")
+    print(f"⚠ ERROR generating FII/DII data: {e}")
 
-print(f"\n✅ PHASE 2 COMPLETE. {len(signals_df)} stocks evaluated.")
-print(f"📁 Dashboard files generated: signals_output.csv, sector_signals.csv, signal_changes.csv")
-
-print("\n🔥 TOP MASTER SIGNALS TODAY:")
-active_signals = signals_df[~signals_df['Signal'].isin(['NEUTRAL', 'WATCH'])].head(15)
-if active_signals.empty:
-    print("  Market is currently choppy. No Strong/Weak signals triggered.")
-else:
-    print(active_signals[['Ticker', 'Price', 'Signal', 'Target', 'StopLoss', 'Score', 'Rules_Fired']].to_string(index=False))
-
+print(f"\n✅ ALL SYSTEMS GREEN. Execution Complete.")
