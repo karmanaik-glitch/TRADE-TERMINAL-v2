@@ -1324,6 +1324,22 @@ function exportJournal(){
   document.body.removeChild(a);
   URL.revokeObjectURL(a.href);
 }
+function exportJournal(){
+  if(!journal.length)return;
+  const keys=['date','action','ticker','qty','price','tf','signal','score','rsi','pnl','rules','notes'];
+  const header=keys.join(',');
+  const rows=journal.map(j=>keys.map(k=>`"${(j[k]||'').toString().replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob=new Blob([header+'\n'+rows],{type:'text/csv'});
+  
+  const a = document.createElement('a'); 
+  a.href = URL.createObjectURL(blob);
+  
+  a.download = 'trade_journal.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+}
 
 function clearJournal(){
   if(confirm('Are you sure you want to clear your entire trade journal? This cannot be undone.')){
