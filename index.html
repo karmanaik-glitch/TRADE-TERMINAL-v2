@@ -591,7 +591,13 @@ function renderStrip(){
 
 function set(id,v){const e=document.getElementById(id);if(e)e.textContent=v}
 function setClass(id,c){const e=document.getElementById(id);if(e)e.className=c}
-function ic(v){return v==='BUY'?'▲':v==='SELL'?'▼':v==='WATCH'?'◈':'·'}
+function ic(v){
+  if(!v) return '·';
+  if(v.includes('BUY')) return '▲';
+  if(v.includes('SELL')) return '▼';
+  if(v.includes('WATCH')) return '◈';
+  return '·';
+}
 
 // ─── SCREENER ────────────────────────────────────────────────
 function renderScreener(){
@@ -871,23 +877,29 @@ function renderAlerts(){
     el.innerHTML='<div class="empty">No signal changes detected yet.<br>Run Phase 2 on two consecutive days<br>to see signal flips here.</div>';
     return;
   }
-  const cc={BUY:'var(--green)',SELL:'var(--red)',WATCH:'var(--amber)',NEUTRAL:'var(--text2)'};
+  
   el.innerHTML=alerts.map(a=>{
     const p=(String(a.Change||'')).split('→');
     const f=(p[0]||'').trim(),t=(p[1]||'').trim();
+    
+    // Dynamic color matching for the new graded signals
+    let tColor = 'var(--text)';
+    if(t.includes('BUY')) tColor = 'var(--green)';
+    else if(t.includes('SELL')) tColor = 'var(--red)';
+    else if(t.includes('WATCH')) tColor = 'var(--amber)';
+
     return`<div class="arow">
       <span class="aticker">${a.Ticker||'?'}</span>
       <span class="achg">
         <span style="color:var(--text2)">${f}</span>
         <span style="color:var(--text3)"> → </span>
-        <span style="color:${cc[t]||'var(--text)'};font-weight:600">${t}</span>
+        <span style="color:${tColor};font-weight:600">${t}</span>
       </span>
       <span class="adate">${a.Date_Changed||'—'}</span>
     </div>`;
   }).join('');
 }
-
-// ─── WATCHLIST ────────────────────────────────────────────────
+  // ─── WATCHLIST ────────────────────────────────────────────────
 function toggleWL(e,ticker){
   e.stopPropagation();
   const i=watchlist.indexOf(ticker);
