@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>NSE Terminal v2 — India Trading Dashboard</title>
+<title>NSE Terminal — India Trading Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -88,20 +88,17 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .ftab.on-sell{background:var(--rbg);border-color:var(--rdim);color:var(--red)}
 .ftab.on-watch{background:var(--abg);border-color:var(--adim);color:var(--amber)}
 .scr-count{font-size:9px;color:var(--text3);margin-left:auto;white-space:nowrap}
-/* 1. Tell the left panel to NEVER stretch past the right column */
+/* 1. Turn the left panel into a flex container */
 .main-grid > .panel:first-child {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-height: 0; /* <-- This is the magic rule that stops the box from expanding */
 }
 
-/* 2. Tell the table to fill only the available space and scroll the rest */
+/* 2. The Magic Trick: height 0 prevents it from pushing the grid! */
 .scr-wrap {
-  flex: 1 1 auto;
+  flex: 1;
+  height: 0; 
   overflow-y: auto;
-  min-height: 0; /* <-- This forces the table to respect the panel's limit */
-  max-height: none;
 }
 .scr-table{width:100%;border-collapse:collapse}
 .scr-table th{position:sticky;top:0;z-index:5;padding:5px 8px;font-size:9px;color:var(--text3);
