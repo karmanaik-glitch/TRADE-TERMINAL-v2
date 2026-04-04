@@ -88,9 +88,17 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 .ftab.on-sell{background:var(--rbg);border-color:var(--rdim);color:var(--red)}
 .ftab.on-watch{background:var(--abg);border-color:var(--adim);color:var(--amber)}
 .scr-count{font-size:9px;color:var(--text3);margin-left:auto;white-space:nowrap}
-.main-grid > .panel:first-child { display: flex; flex-direction: column; min-height: 0; }
-.scr-wrap { flex: 1; overflow-y: auto; min-height: 0; }
-.scr-table{width:100%;border-collapse:collapse}
+.main-grid > .panel:first-child {
+  display: flex;
+  flex-direction: column;
+  height: 0px;          /* MAGIC 1: Forces the grid to ignore the table's 500 rows */
+  min-height: 100%;     /* MAGIC 2: Forces the panel to stretch back down to perfectly match the right column */
+}
+
+.scr-wrap {
+  flex: 1 1 0px;        /* Fills the new constrained space perfectly */
+  overflow-y: auto;     /* Triggers the scrollbar */
+}.scr-table{width:100%;border-collapse:collapse}
 .scr-table th{position:sticky;top:0;z-index:5;padding:5px 8px;font-size:9px;color:var(--text3);
   letter-spacing:.07em;text-transform:uppercase;background:var(--bg3);
   border-bottom:1px solid var(--border);text-align:right;white-space:nowrap;cursor:pointer;user-select:none}
