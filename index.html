@@ -740,8 +740,7 @@ function renderStrip(){
   set('ix-ad-sub',`${adv} adv / ${dec} dec`);
   const bpill=document.getElementById('breadth-pill');
   bpill.textContent=`${((buy/n)*100).toFixed(0)}% BUY · ${((sell/n)*100).toFixed(0)}% SELL`;
-  bpill.className='tpill '+(buy>sell?'pill-g':'sell>buy?pill-r':'pill-d');
-}
+  bpill.className='tpill '+(buy>sell?'pill-g':sell>buy?'pill-r':'pill-d');
 
 function renderBreadth(){
   if(!Object.keys(breadth).length)return;
