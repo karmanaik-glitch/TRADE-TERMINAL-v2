@@ -1139,18 +1139,8 @@ function addEquityPoint(){
     const cmp=sig&&+sig.Close?+sig.Close:pos.avgPrice;
     totalVal+=pos.qty*cmp;
   });
-  
-  const dateStr = today().slice(0,10); // Get just the YYYY-MM-DD
-  const last = STATE.equityCurve[STATE.equityCurve.length-1];
-  
-  // If the last point was logged today, update it. Otherwise, push a new point.
-  if (last && String(last.date).slice(0,10) === dateStr) {
-    last.value = +totalVal.toFixed(0); 
-  } else {
-    const bench = last ? last.bench : 100;
-    STATE.equityCurve.push({date:today(), value:+totalVal.toFixed(0), bench:bench});
-  }
-  
+  const last=STATE.equityCurve[STATE.equityCurve.length-1]||{bench:100};
+  STATE.equityCurve.push({date:today(),value:+totalVal.toFixed(0),bench:last.bench});
   if(STATE.equityCurve.length>500) STATE.equityCurve=STATE.equityCurve.slice(-500);
 }
 
