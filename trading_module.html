@@ -7,11 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
- .chart-wrapper {
-  position: relative;
-  height: 200px; /* Adjust this to make charts taller or shorter */
-  width: 100%;
-} 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg0:#06090f;--bg1:#080d16;--bg2:#0c1220;--bg3:#101828;--bg4:#162032;
@@ -334,12 +329,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
   <div class="dash-lower">
     <div class="dash-chart-box">
       <div class="sec-title"><div class="pdot"></div>RECENT TRADES</div>
-      <div class="chart-wrapper">
       <div id="dash-recent"></div>
     </div>
     <div class="dash-chart-box">
       <div class="sec-title"><div class="pdot"></div>PORTFOLIO ALLOCATION</div>
-      <div class="chart-wrapper">
       <canvas id="dash-alloc-chart" height="170"></canvas>
       <div id="dash-alloc-legend" style="margin-top:8px;display:flex;flex-wrap:wrap;gap:5px"></div>
     </div>
@@ -347,7 +340,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
   <div style="padding:0 10px 10px">
     <div class="dash-chart-box">
       <div class="sec-title"><div class="pdot"></div>EQUITY CURVE — PORTFOLIO vs NIFTY 50 BENCHMARK</div>
-      <div class="chart-wrapper">
       <canvas id="dash-equity" height="110"></canvas>
     </div>
   </div>
@@ -499,10 +491,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 <div id="tp-analytics" class="tp">
   <div class="an-metrics" id="an-metrics"></div>
   <div class="an-grid">
-    <div class="chart-box"><div class="chart-title">EQUITY CURVE — PORTFOLIO vs NIFTY 50</div><div class="chart-wrapper"><canvas id="eq-chart" height="180"></canvas></div>
-    <div class="chart-box"><div class="chart-title">DRAWDOWN CURVE</div><canvas id="dd-chart" height="180"><div class="chart-wrapper"></canvas></div>
-    <div class="chart-box"><div class="chart-title">MONTHLY REALISED P&L (₹)</div><canvas id="mo-chart" height="180"><div class="chart-wrapper"></canvas></div>
-    <div class="chart-box"><div class="chart-title">TRADE P&L DISTRIBUTION</div><canvas id="dist-chart" height="180"><div class="chart-wrapper"></canvas></div>
+    <div class="chart-box"><div class="chart-title">EQUITY CURVE — PORTFOLIO vs NIFTY 50</div><canvas id="eq-chart" height="180"></canvas></div>
+    <div class="chart-box"><div class="chart-title">DRAWDOWN CURVE</div><canvas id="dd-chart" height="180"></canvas></div>
+    <div class="chart-box"><div class="chart-title">MONTHLY REALISED P&L (₹)</div><canvas id="mo-chart" height="180"></canvas></div>
+    <div class="chart-box"><div class="chart-title">TRADE P&L DISTRIBUTION</div><canvas id="dist-chart" height="180"></canvas></div>
   </div>
 </div>
 
